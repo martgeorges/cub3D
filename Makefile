@@ -6,7 +6,7 @@
 #    By: mgeorges <mgeorges@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/13 08:15:39 by mgeorges          #+#    #+#              #
-#    Updated: 2024/12/13 08:16:38 by mgeorges         ###   ########.fr        #
+#    Updated: 2025/01/10 10:22:33 by mgeorges         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ INCLUDES	=	-I./includes
 OBJ_DIR		=	./objs
 
 SRCS	=	main.c \
-			
+			handling_player.c \
 
 OBJS	=	$(patsubst srcs/%.c, $(OBJ_DIR)/%.o, $(SRCS))
 
