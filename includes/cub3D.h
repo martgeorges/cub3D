@@ -6,7 +6,7 @@
 /*   By: mgeorges <mgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 08:17:26 by mgeorges          #+#    #+#             */
-/*   Updated: 2025/01/31 13:48:03 by mgeorges         ###   ########.fr       */
+/*   Updated: 2025/01/31 14:17:03 by mgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@
 # include <fcntl.h>
 # include <stdio.h>
 # include <stdlib.h>
-# include <unistd.h>
 # include <string.h>
+# include <unistd.h>
 
-#define WIDTH 800
-#define HEIGHT 600
+# define WIDTH 800
+# define HEIGHT 600
 
 typedef struct s_game
 {
@@ -44,5 +44,6 @@ void		read_and_stock_map(t_game *game, char *filename);
 int			up_down(t_game *game, int direction);
 int			right_left(t_game *game, int direction);
 int			keyboard_handler(int command, t_game *game, void *mlx, void *win);
+void		render_window(t_game *game, void *mlx, void *win);
 
 #endif

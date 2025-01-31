@@ -6,7 +6,7 @@
 /*   By: mgeorges <mgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 08:38:00 by mgeorges          #+#    #+#             */
-/*   Updated: 2025/01/31 12:48:55 by mgeorges         ###   ########.fr       */
+/*   Updated: 2025/01/31 14:15:45 by mgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ void    print_map(t_game *game)
     int j;
 
     i = 0;
-
     while (game->map[i] != NULL)
     {
         j = 0;

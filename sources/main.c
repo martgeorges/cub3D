@@ -6,7 +6,7 @@
 /*   By: mgeorges <mgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 09:30:15 by mgeorges          #+#    #+#             */
-/*   Updated: 2025/01/31 13:47:36 by mgeorges         ###   ########.fr       */
+/*   Updated: 2025/01/31 14:16:18 by mgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,10 @@ int main(int ac, char **av)
     }
 
     read_and_stock_map(&game, av[1]);
-    mlx = mlx_init();                // Initialiser mlx
-    win = mlx_new_window(mlx, WIDTH, HEIGHT, "Cub3D"); // Créer une fenêtre
+    mlx = mlx_init();
+    win = mlx_new_window(mlx, WIDTH, HEIGHT, "Cub3D");
 
-    mlx_key_hook(win, keyboard_handler, &game); // Gérer les entrées clavier
+    mlx_key_hook(win, keyboard_handler, &game);
     mlx_loop(mlx); 
     
     return (0);
