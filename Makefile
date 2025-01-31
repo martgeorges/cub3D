@@ -6,7 +6,7 @@
 #    By: mgeorges <mgeorges@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/13 08:15:39 by mgeorges          #+#    #+#              #
-#    Updated: 2025/01/10 10:22:33 by mgeorges         ###   ########.fr        #
+#    Updated: 2025/01/31 14:07:28 by mgeorges         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,12 +16,15 @@ CC		=	cc
 
 CFLAGS	=	-Wall -Wextra -Werror -g
 
-INCLUDES	=	-I./includes
+INCLUDES	=	-I./includes -I./minilibx
 
 OBJ_DIR		=	./objs
 
-SRCS	=	main.c \
-			handling_player.c \
+SRCS	=	sources/main.c \
+			sources/handling_player.c sources/handling_player_utils.c \
+			sources/map_render.c sources/map_check.c \
+			
+LIBRARY     = -L./minilibx -lmlx -lX11 -lm
 
 OBJS	=	$(patsubst srcs/%.c, $(OBJ_DIR)/%.o, $(SRCS))
 
@@ -33,7 +36,7 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	@echo "\n$(YELLOW)Compiling $(NAME)...$(RESET)\n"
-	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJS) $(LIBRARY) -o $(NAME)
 	@echo "\n$(GREEN)$(NAME) compiled successfully!$(RESET)\n"
 
 $(OBJ_DIR)/%.o: srcs/%.c
