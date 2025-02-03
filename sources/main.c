@@ -6,7 +6,7 @@
 /*   By: mgeorges <mgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 09:30:15 by mgeorges          #+#    #+#             */
-/*   Updated: 2025/02/03 11:10:10 by mgeorges         ###   ########.fr       */
+/*   Updated: 2025/02/03 12:29:29 by mgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,6 @@ int main(int ac, char **av)
     mlx_hook(data.win, 17, 0, close_window, &data);
     mlx_key_hook(data.win, keyboard_handler, &data);
     mlx_loop(data.mlx);
+    free_map(map);
     return (0);
 }
-

@@ -6,7 +6,7 @@
 /*   By: mgeorges <mgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 08:17:26 by mgeorges          #+#    #+#             */
-/*   Updated: 2025/02/03 11:30:02 by mgeorges         ###   ########.fr       */
+/*   Updated: 2025/02/03 12:58:12 by mgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,12 @@ typedef struct s_data
 // map
 
 char		**read_map_file(char *filename);
-void		print_map(char **map);
 // handling player & keyboard
 
 // mlx utils
 int			close_window(t_data *data);
 int			keyboard_handler(int keycode, t_data *data);
 void		print_map(char **map);
+void		free_map(char **map);
 
 #endif
