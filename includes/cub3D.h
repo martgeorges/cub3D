@@ -6,7 +6,7 @@
 /*   By: mgeorges <mgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 08:17:26 by mgeorges          #+#    #+#             */
-/*   Updated: 2025/01/31 14:17:03 by mgeorges         ###   ########.fr       */
+/*   Updated: 2025/02/03 11:30:02 by mgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,29 +21,27 @@
 # include <string.h>
 # include <unistd.h>
 
-# define WIDTH 800
-# define HEIGHT 600
+# define BUFFER_SIZE 1024
+# define MAX_LINES 100
+# define MAX_COLS 100
 
-typedef struct s_game
+typedef struct s_data
 {
 	void	*mlx;
 	void	*win;
-	char	**map;
-	int		player_x;
-	int		player_y;
-	char	player_direction;
-}			t_game;
+}			t_data;
 
 // main
 
 // map
-void		print_map(t_game *game);
-void		read_and_stock_map(t_game *game, char *filename);
 
+char		**read_map_file(char *filename);
+void		print_map(char **map);
 // handling player & keyboard
-int			up_down(t_game *game, int direction);
-int			right_left(t_game *game, int direction);
-int			keyboard_handler(int command, t_game *game, void *mlx, void *win);
-void		render_window(t_game *game, void *mlx, void *win);
+
+// mlx utils
+int			close_window(t_data *data);
+int			keyboard_handler(int keycode, t_data *data);
+void		print_map(char **map);
 
 #endif

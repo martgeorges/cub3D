@@ -6,7 +6,7 @@
 #    By: mgeorges <mgeorges@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/13 08:15:39 by mgeorges          #+#    #+#              #
-#    Updated: 2025/01/31 14:07:28 by mgeorges         ###   ########.fr        #
+#    Updated: 2025/02/03 11:27:27 by mgeorges         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,10 +21,10 @@ INCLUDES	=	-I./includes -I./minilibx
 OBJ_DIR		=	./objs
 
 SRCS	=	sources/main.c \
-			sources/handling_player.c sources/handling_player_utils.c \
-			sources/map_render.c sources/map_check.c \
+			sources/utils.c sources/map_render.c\
 			
-LIBRARY     = -L./minilibx -lmlx -lX11 -lm
+LIBRARY     = -L./minilibx-linux -lmlx -lX11 -lXext -lXrandr -lXrender -lm
+# LIBRARY	= -L./minilibx -lmlx -lX11 -lXext -lm
 
 OBJS	=	$(patsubst srcs/%.c, $(OBJ_DIR)/%.o, $(SRCS))
 

@@ -6,7 +6,7 @@
 /*   By: mgeorges <mgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 09:30:15 by mgeorges          #+#    #+#             */
-/*   Updated: 2025/01/31 14:16:18 by mgeorges         ###   ########.fr       */
+/*   Updated: 2025/02/03 11:10:10 by mgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,25 @@
 
 int main(int ac, char **av)
 {
-    t_game game;
-    void    *mlx;
-    void    *win;
+    t_data data;
+    char **map;
     
     if (ac != 2)
     {
         printf("error: ./cub3D maps/map.cub");
         return (1);
     }
-
-    read_and_stock_map(&game, av[1]);
-    mlx = mlx_init();
-    win = mlx_new_window(mlx, WIDTH, HEIGHT, "Cub3D");
-
-    mlx_key_hook(win, keyboard_handler, &game);
-    mlx_loop(mlx); 
-    
+    map = read_map_file(av[1]);
+    print_map(map);
+    data.mlx = mlx_init();
+    if (!data.mlx)
+        return (1);
+    data.win = mlx_new_window(data.mlx, 800, 600, "cub3D");
+    if (!data.win)
+        return (1);
+    mlx_hook(data.win, 17, 0, close_window, &data);
+    mlx_key_hook(data.win, keyboard_handler, &data);
+    mlx_loop(data.mlx);
     return (0);
 }
+

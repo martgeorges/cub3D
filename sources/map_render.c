@@ -6,34 +6,50 @@
 /*   By: mgeorges <mgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 08:38:00 by mgeorges          #+#    #+#             */
-/*   Updated: 2025/01/31 14:15:45 by mgeorges         ###   ########.fr       */
+/*   Updated: 2025/02/03 11:29:08 by mgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3D.h"
 
-void    print_map(t_game *game)
+char    **read_map_file(char *filename)
 {
+    int fd;
+    char    **map;
+    char    buffer[BUFFER_SIZE];
+    ssize_t bytes_read;
     int i;
     int j;
 
+    j = 0;
     i = 0;
-    while (game->map[i] != NULL)
+    fd = open(filename, O_RDONLY);
+    if (fd == -1)
+    {
+        printf("error : cant open the file\n");
+        exit(EXIT_FAILURE);
+    }
+    map = malloc(sizeof(char *) * MAX_LINES);
+    while ((bytes_read = read(fd, buffer, BUFFER_SIZE)) > 0)
     {
         j = 0;
-        while (game->map[i][j] != '\0')
+        while (j < bytes_read)
         {
-            if (i == game->player_x && j == game->player_y)
+            if (buffer[j] == '\n' || j == bytes_read - 1)
             {
-                printf("P");
+                map[i] = malloc(j + 1);
+                if (!map[i]) exit(EXIT_FAILURE);
+                memcpy(map[i], buffer, j);
+                map[i][j] = '\0';
+                i++;
+                memmove(buffer, buffer + j + 1, bytes_read - j - 1);
+                bytes_read -= (j + 1);
+                j = 0;
             }
             else
-            {
-                printf("%c", game->map[i][j]);
-            }
-            j++;
+                j++;
         }
-        printf("\n");
-        i++;
     }
+    close(fd);
+    return map;
 }
