@@ -6,7 +6,7 @@
 /*   By: mgeorges <mgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 08:38:00 by mgeorges          #+#    #+#             */
-/*   Updated: 2025/02/04 08:18:09 by mgeorges         ###   ########.fr       */
+/*   Updated: 2025/02/04 09:11:56 by mgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,10 @@ char    **read_map_file(char *filename)
             {
                 map[i] = malloc(j + 1);
                 if (!map[i]) exit(EXIT_FAILURE);
-                memcpy(map[i], buffer, j);
+                ft_memcpy(map[i], buffer, j);
                 map[i][j] = '\0';
                 i++;
-                memmove(buffer, buffer + j + 1, bytes_read - j - 1);
+                ft_memmove(buffer, buffer + j + 1, bytes_read - j - 1);
                 bytes_read -= (j + 1);
                 j = 0;
             }

@@ -6,7 +6,7 @@
 /*   By: mgeorges <mgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 08:17:26 by mgeorges          #+#    #+#             */
-/*   Updated: 2025/02/04 08:16:51 by mgeorges         ###   ########.fr       */
+/*   Updated: 2025/02/04 12:53:08 by mgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@
 # define MAX_LINES 100
 # define MAX_COLS 100
 
+
 typedef struct s_data
 {
 	void	*mlx;
@@ -37,12 +38,21 @@ typedef struct s_data
 // map
 
 char		**read_map_file(char *filename);
+
 // handling player & keyboard
+
+
+// textures
 
 // mlx utils
 int			close_window(t_data *data);
 int			keyboard_handler(int keycode, t_data *data);
 void		print_map(char **map);
 void		free_map(char **map);
+
+// libft
+
+void		*ft_memmove(void *dest, const void *src, size_t n);
+void		*ft_memcpy(void *dest, void const *src, size_t n);
 
 #endif

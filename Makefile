@@ -6,7 +6,7 @@
 #    By: mgeorges <mgeorges@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/13 08:15:39 by mgeorges          #+#    #+#              #
-#    Updated: 2025/02/04 08:15:12 by mgeorges         ###   ########.fr        #
+#    Updated: 2025/02/04 12:53:38 by mgeorges         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,9 +20,13 @@ INCLUDES	=	-I./includes -I./minilibx
 
 OBJ_DIR		=	./objs
 
+#GETNEXTLINE	=	get_next_line/*.c
+
 SRCS	=	sources/main.c \
 		sources/utils.c sources/map_render.c \
-			
+		sources/libft.c \
+		#$(GETNEXTLINE) \
+		
 LIBRARY     = -L./minilibx-linux -lmlx -lX11 -lXext -lXrandr -lXrender -lm
 # LIBRARY	= -L./minilibx -lmlx -lX11 -lXext -lm
 
