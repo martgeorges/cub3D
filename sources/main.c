@@ -6,7 +6,7 @@
 /*   By: mgeorges <mgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 09:30:15 by mgeorges          #+#    #+#             */
-/*   Updated: 2025/02/03 12:29:29 by mgeorges         ###   ########.fr       */
+/*   Updated: 2025/02/04 08:39:58 by mgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ int main(int ac, char **av)
     }
     map = read_map_file(av[1]);
     print_map(map);
+    free_map(map);
     data.mlx = mlx_init();
     if (!data.mlx)
         return (1);
