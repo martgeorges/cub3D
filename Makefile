@@ -6,7 +6,7 @@
 #    By: mgeorges <mgeorges@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/13 08:15:39 by mgeorges          #+#    #+#              #
-#    Updated: 2025/02/05 14:44:47 by mgeorges         ###   ########.fr        #
+#    Updated: 2025/02/06 10:58:23 by mgeorges         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,11 +24,14 @@ OBJ_DIR		=	./objs
 
 SRCS	=	sources/main.c \
 		sources/utils.c sources/map_render.c \
-		sources/libft.c sources/player_position.c\
-		#$(GETNEXTLINE) \
+		sources/libft.c \
+		sources/handling_player.c \
+		sources/player_position.c\
+		sources/movements.c sources/movements_2.c \
 		
-#LIBRARY     = -L./minilibx-linux -lmlx -lX11 -lXext -lXrandr -lXrender -lm
-LIBRARY	= 	-L./minilibx-macos -lmlx -framework OpenGL -framework AppKit
+		
+LIBRARY     = -L./minilibx-linux -lmlx -lX11 -lXext -lXrandr -lXrender -lm
+#LIBRARY	= 	-L./minilibx-macos -lmlx -framework OpenGL -framework AppKit
 
 OBJS	=	$(patsubst srcs/%.c, $(OBJ_DIR)/%.o, $(SRCS))
 

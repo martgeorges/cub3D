@@ -6,11 +6,12 @@
 /*   By: mgeorges <mgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 08:38:00 by mgeorges          #+#    #+#             */
-/*   Updated: 2025/02/04 13:52:11 by mgeorges         ###   ########.fr       */
+/*   Updated: 2025/02/06 12:03:59 by mgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3D.h"
+
 
 char	**read_map_file(char *filename)
 {
