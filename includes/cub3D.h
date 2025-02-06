@@ -6,15 +6,15 @@
 /*   By: mgeorges <mgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 08:17:26 by mgeorges          #+#    #+#             */
-/*   Updated: 2025/02/04 12:53:08 by mgeorges         ###   ########.fr       */
+/*   Updated: 2025/02/05 14:45:25 by mgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB3D_H
 # define CUB3D_H
 
-# include "../minilibx-linux/mlx.h"
-//# include "../minilibx-macos/mlx.h"
+//# include "../minilibx-linux/mlx.h"
+# include "../minilibx-macos/mlx.h"
 //# include "../get_next_line/get_next_line.h"
 # include <fcntl.h>
 # include <stdio.h>
@@ -26,22 +26,42 @@
 # define MAX_LINES 100
 # define MAX_COLS 100
 
-
 typedef struct s_data
 {
 	void	*mlx;
 	void	*win;
 }			t_data;
 
+typedef struct s_map
+{
+    char *textures[4]; // NO, SO, WE, EA
+    int floor[3];
+    int ceiling[3];
+} t_map;
+
+typedef	struct s_game
+{
+	char	**map;
+	int	height;
+	int	width;
+	
+}	t_game;
+
+typedef struct s_player
+{
+	float	p_x;
+	float	p_y;
+	float	view_angle;
+}	t_player;
+
 // main
 
 // map
 
 char		**read_map_file(char *filename);
-
 // handling player & keyboard
-
-
+int	get_angle(char c);
+void	find_player(char **map, t_player *player);
 // textures
 
 // mlx utils

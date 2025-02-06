@@ -1,0 +1,20 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     cub3D
+relocations:
+  - { offsetInCU: 0x26, offset: 0x26, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0x0, symBinAddr: 0x1000047DC, symSize: 0x164 }
+  - { offsetInCU: 0x41, offset: 0x41, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0x0, symBinAddr: 0x1000047DC, symSize: 0x164 }
+  - { offsetInCU: 0x26, offset: 0x144, size: 0x8, addend: 0x0, symName: _close_window, symObjAddr: 0x0, symBinAddr: 0x100004940, symSize: 0x84 }
+  - { offsetInCU: 0x42, offset: 0x160, size: 0x8, addend: 0x0, symName: _close_window, symObjAddr: 0x0, symBinAddr: 0x100004940, symSize: 0x84 }
+  - { offsetInCU: 0x6A, offset: 0x188, size: 0x8, addend: 0x0, symName: _keyboard_handler, symObjAddr: 0x84, symBinAddr: 0x1000049C4, symSize: 0x44 }
+  - { offsetInCU: 0xA0, offset: 0x1BE, size: 0x8, addend: 0x0, symName: _print_map, symObjAddr: 0xC8, symBinAddr: 0x100004A08, symSize: 0x70 }
+  - { offsetInCU: 0xD2, offset: 0x1F0, size: 0x8, addend: 0x0, symName: _free_map, symObjAddr: 0x138, symBinAddr: 0x100004A78, symSize: 0x84 }
+  - { offsetInCU: 0x26, offset: 0x28A, size: 0x8, addend: 0x0, symName: _read_map_file, symObjAddr: 0x0, symBinAddr: 0x100004AFC, symSize: 0x228 }
+  - { offsetInCU: 0x41, offset: 0x2A5, size: 0x8, addend: 0x0, symName: _read_map_file, symObjAddr: 0x0, symBinAddr: 0x100004AFC, symSize: 0x228 }
+  - { offsetInCU: 0x26, offset: 0x382, size: 0x8, addend: 0x0, symName: _ft_memmove, symObjAddr: 0x0, symBinAddr: 0x100004D24, symSize: 0x130 }
+  - { offsetInCU: 0x3A, offset: 0x396, size: 0x8, addend: 0x0, symName: _ft_memmove, symObjAddr: 0x0, symBinAddr: 0x100004D24, symSize: 0x130 }
+  - { offsetInCU: 0x8C, offset: 0x3E8, size: 0x8, addend: 0x0, symName: _ft_memcpy, symObjAddr: 0x130, symBinAddr: 0x100004E54, symSize: 0xA8 }
+  - { offsetInCU: 0x26, offset: 0x484, size: 0x8, addend: 0x0, symName: _get_angle, symObjAddr: 0x0, symBinAddr: 0x100004EFC, symSize: 0x9C }
+  - { offsetInCU: 0x33, offset: 0x491, size: 0x8, addend: 0x0, symName: _get_angle, symObjAddr: 0x0, symBinAddr: 0x100004EFC, symSize: 0x9C }
+  - { offsetInCU: 0x5B, offset: 0x4B9, size: 0x8, addend: 0x0, symName: _find_player, symObjAddr: 0x9C, symBinAddr: 0x100004F98, symSize: 0x188 }
+...

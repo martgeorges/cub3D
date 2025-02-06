@@ -6,7 +6,7 @@
 /*   By: mgeorges <mgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 09:30:15 by mgeorges          #+#    #+#             */
-/*   Updated: 2025/02/04 12:53:27 by mgeorges         ###   ########.fr       */
+/*   Updated: 2025/02/05 14:44:07 by mgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 int	main(int ac, char **av)
 {
 	t_data	data;
+	t_player	player;
 	char	**map;
 
 	if (ac != 2)
@@ -25,6 +26,9 @@ int	main(int ac, char **av)
 	map = read_map_file(av[1]);
 	print_map(map);
 	free_map(map);
+	find_player(map, &player);
+	printf("Joueur trouvé en x=%.1f, y=%.1f, angle=%.1f°\n",
+           player.p_x, player.p_y, player.view_angle);
 	data.mlx = mlx_init();
 	if (!data.mlx)
 		return (1);

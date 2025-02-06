@@ -6,7 +6,7 @@
 /*   By: mgeorges <mgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 07:34:05 by mgeorges          #+#    #+#             */
-/*   Updated: 2025/02/04 12:54:14 by mgeorges         ###   ########.fr       */
+/*   Updated: 2025/02/05 15:03:55 by mgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,17 +18,11 @@ int	close_window(t_data *data)
 		mlx_destroy_window(data->mlx, data->win);
 	if (data->mlx)
 	{
-		mlx_destroy_display(data->mlx);
+		// mlx_destroy_display(data->mlx);
+		mlx_destroy_image(data->mlx, data->win);
 		free(data->mlx);
 	}
 	exit(0);
-	return (0);
-}
-
-int	keyboard_handler(int keycode, t_data *data)
-{
-	if (keycode == 65307)
-		close_window(data);
 	return (0);
 }
 
@@ -43,7 +37,6 @@ void	print_map(char **map)
 		i++;
 	}
 }
-
 
 void	free_map(char **map)
 {
