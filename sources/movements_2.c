@@ -6,7 +6,7 @@
 /*   By: mgeorges <mgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 08:52:54 by mgeorges          #+#    #+#             */
-/*   Updated: 2025/02/07 11:16:30 by mgeorges         ###   ########.fr       */
+/*   Updated: 2025/02/07 13:09:18 by mgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,12 @@
 
 void    move_up(t_player *player, char **map)
 {
-    //find_player(map, player);
     printf("Player position before move: p_x = %f, p_y = %f, angle before = %f\n", player->p_x, player->p_y, player->view_angle);
+    if (player->p_x == 0 || player->p_y == 0)
+    {
+        printf("error : position is not well init\n");
+        exit(0);
+    }
     float new_x = player->p_x + cos(player->view_angle * M_PI / 180);
     float new_y = player->p_y + sin(player->view_angle * M_PI / 180);
     printf("Trying to move to: new_x = %f, new_y = %f\n", new_x, new_y);
@@ -29,7 +33,7 @@ void    move_up(t_player *player, char **map)
 
 void    move_down(t_player *player, char **map)
 {
-    printf("Player position before move: p_x = %f, p_y = %f\n", player->p_x, player->p_y);
+    printf("Player position before move: p_x = %f, p_y = %f, angle before = %f\n", player->p_x, player->p_y, player->view_angle);
     float new_x = player->p_x - cos(player->view_angle * M_PI / 180);
     float new_y = player->p_y - sin(player->view_angle * M_PI / 180);
 
@@ -40,10 +44,6 @@ void    move_down(t_player *player, char **map)
         printf("Move allowed: Updating player position\n");
         player->p_x = new_x;
         player->p_y = new_y;
-    }
-    else
-    {
-        printf("move blocked \n");
     }
 }
 
