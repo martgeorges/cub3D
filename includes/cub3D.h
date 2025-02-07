@@ -6,16 +6,17 @@
 /*   By: mgeorges <mgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 08:17:26 by mgeorges          #+#    #+#             */
-/*   Updated: 2025/02/06 13:28:36 by mgeorges         ###   ########.fr       */
+/*   Updated: 2025/02/07 10:01:21 by mgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB3D_H
 # define CUB3D_H
 
+# include "../get_next_line/get_next_line.h"
 # include "../minilibx-linux/mlx.h"
 //# include "../minilibx-macos/mlx.h"
-//# include "../get_next_line/get_next_line.h"
+
 # include <fcntl.h>
 # include <math.h>
 # include <stdio.h>
@@ -23,7 +24,6 @@
 # include <string.h>
 # include <unistd.h>
 
-# define BUFFER_SIZE 1024
 # define MAX_LINES 1000
 # define MAX_COLS 1000
 
@@ -63,8 +63,8 @@ typedef struct s_data
 // main
 
 // map
-
 char			**read_map_file(char *filename);
+
 // handling player & keyboard
 int				get_angle(char c);
 void			find_player(char **map, t_player *player);

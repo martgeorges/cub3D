@@ -6,7 +6,7 @@
 #    By: mgeorges <mgeorges@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/13 08:15:39 by mgeorges          #+#    #+#              #
-#    Updated: 2025/02/06 10:58:23 by mgeorges         ###   ########.fr        #
+#    Updated: 2025/02/07 08:45:35 by mgeorges         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ INCLUDES	=	-I./includes -I./minilibx
 
 OBJ_DIR		=	./objs
 
-#GETNEXTLINE	=	get_next_line/*.c
+GETNEXTLINE	=	get_next_line/*.c \
 
 SRCS	=	sources/main.c \
 		sources/utils.c sources/map_render.c \
@@ -28,7 +28,7 @@ SRCS	=	sources/main.c \
 		sources/handling_player.c \
 		sources/player_position.c\
 		sources/movements.c sources/movements_2.c \
-		
+		$(GETNEXTLINE) \
 		
 LIBRARY     = -L./minilibx-linux -lmlx -lX11 -lXext -lXrandr -lXrender -lm
 #LIBRARY	= 	-L./minilibx-macos -lmlx -framework OpenGL -framework AppKit

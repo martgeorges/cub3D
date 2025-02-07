@@ -6,14 +6,54 @@
 /*   By: mgeorges <mgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 08:38:00 by mgeorges          #+#    #+#             */
-/*   Updated: 2025/02/06 12:03:59 by mgeorges         ###   ########.fr       */
+/*   Updated: 2025/02/07 09:28:43 by mgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3D.h"
 
-
 char	**read_map_file(char *filename)
+{
+	int		fd;
+	char	**map;
+	char	*line;
+	int		i;
+
+	i = 0;
+	fd = open(filename, O_RDONLY);
+	if (fd == -1)
+	{
+		printf("Error: can't open the file\n");
+		exit(EXIT_FAILURE);
+	}
+	map = malloc(sizeof(char *) * MAX_LINES);
+	if (!map)
+	{
+		printf("Error: memory allocation failed\n");
+		exit(EXIT_FAILURE);
+	}
+	while ((line = get_next_line(fd)) != NULL)
+	{
+		map[i] = ft_strdup(line);  
+		if (!map[i])
+		{
+			printf("Error: memory allocation failed\n");
+			exit(EXIT_FAILURE);
+		}
+		free(line);
+		i++;
+		if (i >= MAX_LINES)
+		{
+			printf("Error: too many lines in the map\n");
+			exit(EXIT_FAILURE);
+		}
+	}
+	map[i] = NULL;
+	close(fd);
+	return (map);
+}
+
+/*char	**read_map_file(char *filename)
 {
 	int		fd;
 	char	**map;
@@ -55,4 +95,4 @@ char	**read_map_file(char *filename)
 	map[i] = NULL;
 	close(fd);
 	return (map);
-}
+}*/
