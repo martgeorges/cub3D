@@ -6,7 +6,7 @@
 /*   By: mgeorges <mgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 09:30:15 by mgeorges          #+#    #+#             */
-/*   Updated: 2025/02/07 08:10:10 by mgeorges         ###   ########.fr       */
+/*   Updated: 2025/02/07 11:21:14 by mgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	main(int ac, char **av)
 	map = read_map_file(av[1]);
 	print_map(map);
 	find_player(map, &player);
-	printf("joueur trouvé en x = %.1f, y = %.1f\n", player.p_x, player.p_y);
+	printf("joueur trouvé en x = %.1f, y = %.1f, angle = %.1f\n", player.p_x, player.p_y, player.view_angle);
 	free_map(map);
 	data.mlx = mlx_init();
 	if (!data.mlx)
