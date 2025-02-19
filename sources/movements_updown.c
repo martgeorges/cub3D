@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   movements_2.c                                      :+:      :+:    :+:   */
+/*   movements_updown.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgeorges <mgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 08:52:54 by mgeorges          #+#    #+#             */
-/*   Updated: 2025/02/19 11:21:56 by mgeorges         ###   ########.fr       */
+/*   Updated: 2025/02/19 11:42:06 by mgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,14 @@ int up_down(t_game *game, int direction)
     //t_player *player = &game->player;
 
     if (direction == 119 || direction == 65362)
+    {
         move_up(game, game->map);
+        print_map(game->map);
+    }
     else if (direction == 115 || direction == 65364)
+    {
         move_down(game, game->map);
+        print_map(game->map);
+    }
     return (1);
 }
