@@ -6,7 +6,7 @@
 /*   By: mgeorges <mgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 08:17:26 by mgeorges          #+#    #+#             */
-/*   Updated: 2025/02/07 13:24:36 by mgeorges         ###   ########.fr       */
+/*   Updated: 2025/02/19 11:18:25 by mgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 # define CUB3D_H
 
 # include "../get_next_line/get_next_line.h"
-//# include "../minilibx-linux/mlx.h"
-# include "../minilibx-macos/mlx.h"
+# include "../minilibx-linux/mlx.h"
+//# include "../minilibx-macos/mlx.h"
 
 # include <fcntl.h>
 # include <math.h>
@@ -67,15 +67,20 @@ char			**read_map_file(char *filename);
 
 // handling player & keyboard
 int				get_angle(char c);
-void			find_player(char **map, t_player *player);
+// int				find_player(char **map, t_player *player);
+int				find_player(t_data *data);
+
 int				keyboard_handler(int keycode, t_data *data);
 // movements
 int				map_height(char **map);
 int				map_width(char **map);
 int				can_move(char **map, int new_y, int new_x);
 
-void			move_up(t_player *player, char **map);
-void			move_down(t_player *player, char **map);
+// void			move_up(t_player *player, char **map);
+void			move_up(t_game *game, char **map);
+void			move_down(t_game *game, char **map);
+
+//void			move_down(t_player *player, char **map);
 int				up_down(t_game *game, int direction);
 // textures
 

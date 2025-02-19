@@ -6,7 +6,7 @@
 /*   By: mgeorges <mgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 12:58:39 by mgeorges          #+#    #+#             */
-/*   Updated: 2025/02/06 13:47:26 by mgeorges         ###   ########.fr       */
+/*   Updated: 2025/02/19 07:26:27 by mgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,4 +43,3 @@ int can_move(char **map, int new_y, int new_x)
         return (0);
     return (map[new_y][new_x] != '1');
 }
-

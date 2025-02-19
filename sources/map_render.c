@@ -6,7 +6,7 @@
 /*   By: mgeorges <mgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 08:38:00 by mgeorges          #+#    #+#             */
-/*   Updated: 2025/02/07 09:28:43 by mgeorges         ###   ########.fr       */
+/*   Updated: 2025/02/19 09:54:41 by mgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ char	**read_map_file(char *filename)
 	int		i;
 
 	i = 0;
+	map = NULL;
+	line = NULL;
 	fd = open(filename, O_RDONLY);
 	if (fd == -1)
 	{

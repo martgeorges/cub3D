@@ -6,7 +6,7 @@
 /*   By: mgeorges <mgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 09:30:15 by mgeorges          #+#    #+#             */
-/*   Updated: 2025/02/13 16:32:28 by mgeorges         ###   ########.fr       */
+/*   Updated: 2025/02/19 11:29:52 by mgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,28 +15,41 @@
 int	main(int ac, char **av)
 {
 	t_data	data;
-	t_player	player;
-	char	**map;
+	//t_player	player;
+	//char	**map;
 
 	if (ac != 2)
 	{
 		printf("error: ./cub3D maps/map.cub");
 		return (1);
 	}
-	map = read_map_file(av[1]);
+	data.game.player.p_x = 0;
+	data.game.player.p_y = 0;
+	data.game.map = read_map_file(av[1]);
+	printf("%s", data.game.map[0]);
+	if (data.game.map == NULL)
+	{
+		free(data.game.map);
+		return (1);
+	}
 	//print_map(map);
-	find_player(map, &player);
-	printf("joueur trouvé en x = %.1f, y = %.1f, angle = %.1f\n", player.p_x, player.p_y, player.view_angle);
-	free_map(map);
+	
+	
+	find_player(&data);
+	printf("joueur trouvé en x = %.1f, y = %.1f, angle = %.1f\n", data.game.player.p_x, data.game.player.p_y, data.game.player.view_angle);
+	
+	//free_map(map);
+	
 	data.mlx = mlx_init();
 	if (!data.mlx)
 		return (1);
-	data.win = mlx_new_window(data.mlx, 800, 800, "cub3D");
+	data.win = mlx_new_window(data.mlx, 800, 600, "cub3D");
 	if (!data.win)
 		return (1);
 	mlx_hook(data.win, 17, 0, close_window, &data);
 	mlx_key_hook(data.win, keyboard_handler, &data);
 	mlx_loop(data.mlx);
-	free_map(map);
+	free_map(data.game.map);
+
 	return (0);
 }

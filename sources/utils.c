@@ -6,7 +6,7 @@
 /*   By: mgeorges <mgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 07:34:05 by mgeorges          #+#    #+#             */
-/*   Updated: 2025/02/07 13:26:25 by mgeorges         ###   ########.fr       */
+/*   Updated: 2025/02/19 08:02:43 by mgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ int	close_window(t_data *data)
 		mlx_destroy_window(data->mlx, data->win);
 	if (data->mlx)
 	{
-		//mlx_destroy_display(data->mlx);
-		mlx_destroy_image(data->mlx, data->win);
+		mlx_destroy_display(data->mlx);
+		//mlx_destroy_image(data->mlx, data->win);
 		free(data->mlx);
 	}
 	exit(0);
