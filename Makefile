@@ -6,7 +6,7 @@
 #    By: mgeorges <mgeorges@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/13 08:15:39 by mgeorges          #+#    #+#              #
-#    Updated: 2025/02/07 08:45:35 by mgeorges         ###   ########.fr        #
+#    Updated: 2025/02/07 13:27:48 by mgeorges         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,8 +30,8 @@ SRCS	=	sources/main.c \
 		sources/movements.c sources/movements_2.c \
 		$(GETNEXTLINE) \
 		
-LIBRARY     = -L./minilibx-linux -lmlx -lX11 -lXext -lXrandr -lXrender -lm
-#LIBRARY	= 	-L./minilibx-macos -lmlx -framework OpenGL -framework AppKit
+#LIBRARY     = -L./minilibx-linux -lmlx -lX11 -lXext -lXrandr -lXrender -lm
+LIBRARY	= 	-L./minilibx-macos -lmlx -framework OpenGL -framework AppKit
 
 OBJS	=	$(patsubst srcs/%.c, $(OBJ_DIR)/%.o, $(SRCS))
 

@@ -6,7 +6,7 @@
 /*   By: mgeorges <mgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 08:17:26 by mgeorges          #+#    #+#             */
-/*   Updated: 2025/02/07 10:01:21 by mgeorges         ###   ########.fr       */
+/*   Updated: 2025/02/07 13:24:36 by mgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 # define CUB3D_H
 
 # include "../get_next_line/get_next_line.h"
-# include "../minilibx-linux/mlx.h"
-//# include "../minilibx-macos/mlx.h"
+//# include "../minilibx-linux/mlx.h"
+# include "../minilibx-macos/mlx.h"
 
 # include <fcntl.h>
 # include <math.h>
