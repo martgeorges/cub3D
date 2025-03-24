@@ -6,11 +6,11 @@
 /*   By: mgeorges <mgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 08:38:00 by mgeorges          #+#    #+#             */
-/*   Updated: 2025/03/19 09:53:42 by mgeorges         ###   ########.fr       */
+/*   Updated: 2025/03/24 10:43:11 by mgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3D.h"
+#include "../../includes/cub3D.h"
 
 static void	handle_open_error(int fd)
 {

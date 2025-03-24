@@ -6,11 +6,11 @@
 /*   By: mgeorges <mgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 11:38:13 by mgeorges          #+#    #+#             */
-/*   Updated: 2025/03/19 14:15:34 by mgeorges         ###   ########.fr       */
+/*   Updated: 2025/03/24 10:44:49 by mgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3D.h"
+#include "../../includes/cub3D.h"
 
 void	clear_background(t_data *game)
 {

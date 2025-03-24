@@ -6,11 +6,11 @@
 /*   By: mgeorges <mgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 09:09:54 by mgeorges          #+#    #+#             */
-/*   Updated: 2025/03/10 13:27:33 by mgeorges         ###   ########.fr       */
+/*   Updated: 2025/03/24 10:44:20 by mgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3D.h"
+#include "../../includes/cub3D.h"
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {

@@ -6,11 +6,11 @@
 /*   By: mgeorges <mgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 10:43:42 by mgeorges          #+#    #+#             */
-/*   Updated: 2025/03/18 09:13:10 by mgeorges         ###   ########.fr       */
+/*   Updated: 2025/03/24 10:45:09 by mgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3D.h"
+#include "../../includes/cub3D.h"
 
 int	rgb_to_int(int r, int g, int b)
 {

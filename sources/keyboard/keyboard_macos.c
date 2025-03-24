@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   keyboard_handler.c                                 :+:      :+:    :+:   */
+/*   keyboard_macos.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ncollign <ncollign@student.42luxembourg    +#+  +:+       +#+        */
+/*   By: mgeorges <mgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/04 12:48:51 by mgeorges          #+#    #+#             */
-/*   Updated: 2025/03/16 18:36:39 by ncollign         ###   ########.fr       */
+/*   Created: 2025/03/11 12:52:49 by mgeorges          #+#    #+#             */
+/*   Updated: 2025/03/24 10:44:04 by mgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3D.h"
+#include "../../includes/cub3D.h"
 
 void	movement_qd(t_data *game)
 {
@@ -74,36 +74,36 @@ int	update_game(t_data *game)
 
 int	key_press(int keycode, t_data *game)
 {
-	if (keycode == 65307)
+	if (keycode == 53)
 		close_window(game);
-	if (keycode == 65361)
+	if (keycode == 123)
 		game->keys[LEFT] = 1;
-	else if (keycode == 65363)
+	else if (keycode == 124)
 		game->keys[RIGHT] = 1;
-	else if (keycode == 122)
+	else if (keycode == 13)
 		game->keys[FORWARD] = 1;
-	else if (keycode == 115)
+	else if (keycode == 1)
 		game->keys[BACKWARD] = 1;
-	else if (keycode == 113)
+	else if (keycode == 0)
 		game->keys[STRAFE_LEFT] = 1;
-	else if (keycode == 100)
+	else if (keycode == 2)
 		game->keys[STRAFE_RIGHT] = 1;
 	return (0);
 }
 
 int	key_release(int keycode, t_data *game)
 {
-	if (keycode == 65361)
+	if (keycode == 123)
 		game->keys[LEFT] = 0;
-	else if (keycode == 65363)
+	else if (keycode == 124)
 		game->keys[RIGHT] = 0;
-	else if (keycode == 122)
+	else if (keycode == 13)
 		game->keys[FORWARD] = 0;
-	else if (keycode == 115)
+	else if (keycode == 1)
 		game->keys[BACKWARD] = 0;
-	else if (keycode == 113)
+	else if (keycode == 0)
 		game->keys[STRAFE_LEFT] = 0;
-	else if (keycode == 100)
+	else if (keycode == 2)
 		game->keys[STRAFE_RIGHT] = 0;
 	return (0);
 }

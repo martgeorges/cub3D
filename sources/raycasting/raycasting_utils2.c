@@ -6,11 +6,11 @@
 /*   By: mgeorges <mgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 15:30:43 by mgeorges          #+#    #+#             */
-/*   Updated: 2025/03/19 14:15:59 by mgeorges         ###   ########.fr       */
+/*   Updated: 2025/03/24 10:44:45 by mgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3D.h"
+#include "../../includes/cub3D.h"
 
 t_image	*get_texture(t_data *game, int side)
 {

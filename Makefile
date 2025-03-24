@@ -6,7 +6,7 @@
 #    By: mgeorges <mgeorges@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/13 08:15:39 by mgeorges          #+#    #+#              #
-#    Updated: 2025/03/19 15:56:06 by mgeorges         ###   ########.fr        #
+#    Updated: 2025/03/24 10:42:41 by mgeorges         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,21 +15,25 @@ NAME	=	cub3D
 CC		=	cc
 
 CFLAGS	=	-Wall -Wextra -Werror 
-#CFLAGS	=	-Wall -Wextra -Werror -g -arch arm64
 
 INCLUDES	=	-I./includes -I./minilibx-linux
 
 OBJ_DIR		=	./objs
 
+ERROR_SRCS	=	sources/error/error.c sources/error/error2.c
+LIBFT_SRCS	=	sources/libft/ft_split.c sources/libft/get_next_line.c sources/libft/libft.c \
+			sources/libft/libft2.c sources/libft/utils2.c
+MAP_SRCS	=	sources/map_files/map_errors.c sources/map_files/map_errors_2.c \
+			sources/map_files/map_errors_3.c sources/map_files/map_render.c
+RAYCAST_SRCS = sources/raycasting/raycasting.c sources/raycasting/raycasting_utils.c \
+			sources/raycasting/raycasting_utils2.c
+TEXTURES_SRCS =	sources/textures/textures.c sources/textures/textures_floor_ceiling.c
+KEYBOARD_SRCS = sources/keyboard/keyboard_macos.c
+
 SRCS	=	sources/main.c \
-		sources/utils.c sources/map_render.c \
-		sources/libft.c \
-		sources/keyboard_macos.c \
-		sources/raycasting.c sources/error.c sources/raycasting_utils.c \
-		sources/libft2.c sources/textures_floor_ceiling.c \
-		sources/ft_split.c sources/textures.c sources/memory_management.c \
-		sources/utils2.c sources/get_next_line.c sources/raycasting_utils2.c \
-		sources/map_errors.c sources/map_errors_2.c sources/map_errors_3.c 
+		sources/utils.c \
+		sources/memory_management.c \
+		$(ERROR_SRCS) $(LIBFT_SRCS) $(MAP_SRCS) $(RAYCAST_SRCS) $(TEXTURES_SRCS) $(KEYBOARD_SRCS)
 		
 #LIBRARY     = -L./minilibx-linux -lmlx -lX11 -lXext -lXrandr -lXrender -lm
 #LIBRARY	= -L./minilibx-macos -lmlx -lX11 -lXext -lm
@@ -48,8 +52,11 @@ $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) $(LIBRARY) -o $(NAME)
 	@echo "\n$(GREEN)$(NAME) compiled successfully!$(RESET)\n"
 
+$(OBJ_DIRS): 
+	@mkdir -p $(OBJ_DIRS)
+
 $(OBJ_DIR)/%.o: sources/%.c
-	@mkdir -p $(OBJ_DIR)
+	@mkdir -p $(dir $@)
 	@$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
 clean:

@@ -6,11 +6,11 @@
 /*   By: mgeorges <mgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 11:02:11 by mgeorges          #+#    #+#             */
-/*   Updated: 2025/03/19 14:26:38 by mgeorges         ###   ########.fr       */
+/*   Updated: 2025/03/24 10:44:24 by mgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3D.h"
+#include "../../includes/cub3D.h"
 
 int	ft_atoi(const char *str)
 {

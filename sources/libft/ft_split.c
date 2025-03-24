@@ -6,11 +6,11 @@
 /*   By: mgeorges <mgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 11:05:01 by mgeorges          #+#    #+#             */
-/*   Updated: 2025/03/10 12:08:20 by mgeorges         ###   ########.fr       */
+/*   Updated: 2025/03/24 10:44:10 by mgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3D.h"
+#include "../../includes/cub3D.h"
 
 static size_t	count_words(char const *s, char c)
 {

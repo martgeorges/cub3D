@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   utils2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ncollign <ncollign@student.42luxembourg    +#+  +:+       +#+        */
+/*   By: mgeorges <mgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 19:25:20 by ncollign          #+#    #+#             */
-/*   Updated: 2025/03/17 19:25:20 by ncollign         ###   ########.fr       */
+/*   Updated: 2025/03/24 10:44:28 by mgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3D.h"
+#include "../../includes/cub3D.h"
 
 static int	is_charset(char c, const char *set)
 {

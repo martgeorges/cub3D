@@ -6,11 +6,11 @@
 /*   By: mgeorges <mgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 08:15:54 by mgeorges          #+#    #+#             */
-/*   Updated: 2025/03/18 09:21:10 by mgeorges         ###   ########.fr       */
+/*   Updated: 2025/03/24 10:44:14 by mgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3D.h"
+#include "../../includes/cub3D.h"
 
 char	*get_next_line(int fd)
 {

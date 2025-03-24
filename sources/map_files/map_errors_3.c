@@ -6,11 +6,11 @@
 /*   By: mgeorges <mgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 15:55:03 by mgeorges          #+#    #+#             */
-/*   Updated: 2025/03/24 09:16:19 by mgeorges         ###   ########.fr       */
+/*   Updated: 2025/03/24 10:43:21 by mgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3D.h"
+#include "../../includes/cub3D.h"
 
 int	is_map_line(char *line)
 {
