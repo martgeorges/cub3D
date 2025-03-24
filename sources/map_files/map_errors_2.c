@@ -6,7 +6,7 @@
 /*   By: mgeorges <mgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 15:06:22 by mgeorges          #+#    #+#             */
-/*   Updated: 2025/03/24 10:43:16 by mgeorges         ###   ########.fr       */
+/*   Updated: 2025/03/24 11:45:04 by mgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	check_cub_file(char **map)
 		if (!is_line_empty(map[i]))
 			has_content = 1;
 		if (!ft_strncmp(map[i], "NO", 2) || !ft_strncmp(map[i], "SO", 2)
-			|| !strncmp(map[i], "WE", 2) || !ft_strncmp(map[i], "EA", 2)
+			|| !ft_strncmp(map[i], "WE", 2) || !ft_strncmp(map[i], "EA", 2)
 			|| !ft_strncmp(map[i], "F", 1) || !ft_strncmp(map[i], "C", 1))
 			has_map = 1;
 		i++;
@@ -47,6 +47,14 @@ void	check_cub_file(char **map)
 		printf("\033[31mError: [.cub] file is completely empty.\033[0m\n");
 		exit(EXIT_FAILURE);
 	}
+	print_info(has_map);
+}
+
+void	print_info(int has_map)
+{
 	if (!has_map)
+	{
+		printf("\033[31mError: only map in file\033[0m\n");
 		exit(EXIT_FAILURE);
+	}
 }

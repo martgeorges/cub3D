@@ -6,7 +6,7 @@
 /*   By: mgeorges <mgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 08:17:26 by mgeorges          #+#    #+#             */
-/*   Updated: 2025/03/24 11:03:02 by mgeorges         ###   ########.fr       */
+/*   Updated: 2025/03/24 11:43:09 by mgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -169,6 +169,7 @@ int				is_line_empty(char *line);
 void			check_cub_file(char **map);
 int				is_map_line(char *line);
 void			check_textures_and_colors(char **map);
+void			print_info(int has_map);
 
 // memory management
 void			free_textures(t_data *game);

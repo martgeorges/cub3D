@@ -6,74 +6,11 @@
 /*   By: mgeorges <mgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 15:55:03 by mgeorges          #+#    #+#             */
-/*   Updated: 2025/03/24 11:08:23 by mgeorges         ###   ########.fr       */
+/*   Updated: 2025/03/24 11:45:40 by mgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3D.h"
-
-/*int	is_map_line(char *line)
-{
-	while (*line)
-	{
-		if (*line == '1' || *line == '0' || *line == 'N' || *line == 'S'
-			|| *line == 'E' || *line == 'W')
-			return (1);
-		line++;
-	}
-	return (0);
-}
-
-void	check_textures_and_colors(char **map)
-{
-	int	i;
-	int	has_no;
-	int	has_so;
-	int	has_we;
-	int	has_ea;
-	int	has_floor;
-	int	has_ceiling;
-
-	has_no = 0;
-	has_so = 0;
-	has_we = 0;
-	has_ea = 0;
-	has_floor = 0;
-	has_ceiling = 0;
-	i = 0;
-	while (map[i])
-	{
-		if (ft_strncmp(map[i], "NO", 2) == 0)
-			has_no = 1;
-		else if (ft_strncmp(map[i], "SO", 2) == 0)
-			has_so = 1;
-		else if (ft_strncmp(map[i], "WE", 2) == 0)
-			has_we = 1;
-		else if (ft_strncmp(map[i], "EA", 2) == 0)
-			has_ea = 1;
-		else if (ft_strncmp(map[i], "F", 1) == 0)
-			has_floor = 1;
-		else if (ft_strncmp(map[i], "C", 1) == 0)
-			has_ceiling = 1;
-		else if (is_map_line(map[i]))
-			break ;
-		i++;
-	}
-	if (!has_no || !has_so || !has_we || !has_ea)
-	{
-		printf("\033[31mError: Missing (NO, SO, WE,EA) in the file.\033[0m\n");
-		exit(EXIT_FAILURE);
-	}
-	if (!has_floor || !has_ceiling)
-	{
-		printf("\033[31mError: Missing colors (F and/or C) in the file.\033[0m\n");
-		exit(EXIT_FAILURE);
-	}
-}*/
-
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 
 int	is_map_line(char *line)
 {
@@ -104,17 +41,17 @@ void	validate_textures_and_colors(char **map, int *textures, int *colors)
 	i = 0;
 	while (map[i])
 	{
-		if (strncmp(map[i], "NO", 2) == 0)
+		if (ft_strncmp(map[i], "NO", 2) == 0)
 			check_duplicates(&textures[0], "Duplicate NO texture.");
-		else if (strncmp(map[i], "SO", 2) == 0)
+		else if (ft_strncmp(map[i], "SO", 2) == 0)
 			check_duplicates(&textures[1], "Duplicate SO texture.");
-		else if (strncmp(map[i], "WE", 2) == 0)
+		else if (ft_strncmp(map[i], "WE", 2) == 0)
 			check_duplicates(&textures[2], "Duplicate WE texture.");
-		else if (strncmp(map[i], "EA", 2) == 0)
+		else if (ft_strncmp(map[i], "EA", 2) == 0)
 			check_duplicates(&textures[3], "Duplicate EA texture.");
-		else if (strncmp(map[i], "F", 1) == 0)
+		else if (ft_strncmp(map[i], "F", 1) == 0)
 			check_duplicates(&colors[0], "Duplicate F color.");
-		else if (strncmp(map[i], "C", 1) == 0)
+		else if (ft_strncmp(map[i], "C", 1) == 0)
 			check_duplicates(&colors[1], "Duplicate C color.");
 		else if (is_map_line(map[i]))
 			break ;
@@ -124,18 +61,24 @@ void	validate_textures_and_colors(char **map, int *textures, int *colors)
 
 void	check_textures_and_colors(char **map)
 {
-	int	textures[4] = {0, 0, 0, 0};
-	int	colors[2] = {0, 0};
+	int	textures[4];
+	int	colors[2];
 
+	textures[0] = 0;
+	textures[1] = 0;
+	textures[2] = 0;
+	textures[3] = 0;
+	colors[0] = 0;
+	colors[1] = 0;
 	validate_textures_and_colors(map, textures, colors);
 	if (!textures[0] || !textures[1] || !textures[2] || !textures[3])
 	{
-		printf("\033[31mError: Missing (NO, SO, WE, EA) in the file.\033[0m\n");
+		printf("\033[31mError: Missing (NO, SO, WE, EA) in file.\033[0m\n");
 		exit(EXIT_FAILURE);
 	}
 	if (!colors[0] || !colors[1])
 	{
-		printf("\033[31mError: Missing colors (F and/or C) in the file.\033[0m\n");
+		printf("\033[31mError: Missing colors (F and/or C) in file.\033[0m\n");
 		exit(EXIT_FAILURE);
 	}
 }
