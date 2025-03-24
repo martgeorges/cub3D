@@ -6,17 +6,12 @@
 /*   By: mgeorges <mgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 13:30:53 by mgeorges          #+#    #+#             */
-/*   Updated: 2025/03/24 10:43:39 by mgeorges         ###   ########.fr       */
+/*   Updated: 2025/03/24 12:38:01 by mgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// a faire
-// fonction pour les murs
-// si carte d'abord erreur
-
 #include "../../includes/cub3D.h"
 
-// verif si termine par .cub
 int	is_cub_file(const char *filename)
 {
 	int	len;

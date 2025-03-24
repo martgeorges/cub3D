@@ -6,7 +6,7 @@
 /*   By: mgeorges <mgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 09:30:15 by mgeorges          #+#    #+#             */
-/*   Updated: 2025/03/24 12:08:42 by mgeorges         ###   ########.fr       */
+/*   Updated: 2025/03/24 12:42:37 by mgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int	main(int ac, char **av)
 	}
 	if (!load_textures_from_map(game, av[1]))
 	{
-		printf("Error loading textures from map.\n");
+		printf("\033[31mError loading textures from map.\033[0m\n");
 		return (1);
 	}
 	printf("Game starting...\n\n");

@@ -6,7 +6,7 @@
 /*   By: mgeorges <mgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 09:53:09 by mgeorges          #+#    #+#             */
-/*   Updated: 2025/03/24 10:42:54 by mgeorges         ###   ########.fr       */
+/*   Updated: 2025/03/24 12:36:47 by mgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ void	display_messages(char **map)
 	check_cub_file(map);
 	if (start_map == -1)
 	{
-		printf("Error: Map not found in the file\n");
+		printf("\033[31mError: Map not found in the file\033[0m\n");
 		exit(EXIT_FAILURE);
 	}
 	player_count = count_players(map, start_map);

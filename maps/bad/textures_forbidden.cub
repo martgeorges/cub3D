@@ -1,7 +1,7 @@
-NO textures/test/forbidden.xpm
-SO textures/test/south.xpm
-WE textures/test/west.xpm
-EA textures/test/east.xpm
+NO textures/walls/forbidden.xpm
+SO textures/walls/color_stone.xpm
+WE textures/walls/red_brick.xpm
+EA textures/walls/eagle.xpm
 
 F 20,20,20
 C 200,200,200

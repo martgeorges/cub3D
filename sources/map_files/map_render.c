@@ -6,7 +6,7 @@
 /*   By: mgeorges <mgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 08:38:00 by mgeorges          #+#    #+#             */
-/*   Updated: 2025/03/24 10:43:11 by mgeorges         ###   ########.fr       */
+/*   Updated: 2025/03/24 12:37:19 by mgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static void	handle_open_error(int fd)
 {
 	if (fd == -1)
 	{
-		printf("error : cant open the file\n");
+		printf("\033[31mError : cant open the file\033[0m\n");
 		exit(EXIT_FAILURE);
 	}
 }
