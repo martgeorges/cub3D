@@ -6,7 +6,7 @@
 /*   By: mgeorges <mgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 08:17:26 by mgeorges          #+#    #+#             */
-/*   Updated: 2025/03/24 09:16:32 by mgeorges         ###   ########.fr       */
+/*   Updated: 2025/03/24 11:03:02 by mgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,7 @@
 # include <string.h>
 # include <unistd.h>
 
-//# ifndef M_PI
-//#  define M_PI 3.14159265358979323846
-//# endif
-
 // raycasting
-
 # define FOV 1.0471975512
 
 // Controls
@@ -74,7 +69,6 @@ typedef struct s_texture
 	t_image		wall_west;
 }				t_texture;
 
-// structure raycasting
 typedef struct s_ray
 {
 	double		x;
@@ -95,7 +89,6 @@ typedef struct s_step
 	double		dist_y;
 }				t_step;
 
-// Structure principale du jeu
 typedef struct s_data
 {
 	void		*mlx;
@@ -176,7 +169,6 @@ int				is_line_empty(char *line);
 void			check_cub_file(char **map);
 int				is_map_line(char *line);
 void			check_textures_and_colors(char **map);
-
 
 // memory management
 void			free_textures(t_data *game);
