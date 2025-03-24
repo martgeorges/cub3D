@@ -6,7 +6,7 @@
 /*   By: mgeorges <mgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 09:30:15 by mgeorges          #+#    #+#             */
-/*   Updated: 2025/03/24 12:01:45 by mgeorges         ###   ########.fr       */
+/*   Updated: 2025/03/24 12:08:42 by mgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,12 +59,6 @@ int	main(int ac, char **av)
 		return (1);
 	game->img.addr = mlx_get_data_addr(game->img.img, &game->img.bpp,
 			&game->img.line_length, &game->img.endian);
-	/*y = 0;
-	while (game->map[y])
-	{
-		parse_map_info(game, game->map[y]);
-		y++;
-	}*/
 	game->cell_size = 20;
 	y = 0;
 	while (game->map[y])
