@@ -5,21 +5,47 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgeorges <mgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/07 10:11:41 by mgeorges          #+#    #+#             */
-/*   Updated: 2025/02/07 10:28:52 by mgeorges         ###   ########.fr       */
+/*   Created: 2025/03/06 13:30:53 by mgeorges          #+#    #+#             */
+/*   Updated: 2025/03/20 10:43:26 by mgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+// a faire
+// fonction pour les murs
+// si carte d'abord erreur
+
 #include "../includes/cub3D.h"
 
-//check si il y a un autre charactère que 1, 0 ou N S E W ou c 
-void    check_map(t_game *game)
+// verif si termine par .cub
+int	is_cub_file(const char *filename)
 {
-    while (game->map)
-    {
-        if (game->map != '1' && game->map != '0')
-        {
-            printf("error : no walls or floor\n");
-        }
-    }
+	int	len;
+
+	len = ft_strlen(filename);
+	if (len < 4)
+	{
+		printf("\033[31mError: file needs to have .cub\033[0m\n");
+		return (0);
+	}
+	if (filename[len - 4] != '.' || filename[len - 3] != 'c' || filename[len
+			- 2] != 'u' || filename[len - 1] != 'b')
+	{
+		printf("\033[31mError: file needs to have extension .cub\033[0m\n");
+		return (0);
+	}
+	return (1);
+}
+
+int	check_error(int ac, char **av)
+{
+	if (ac != 2)
+	{
+		printf("\033[31mError: ./cub3D maps/map.cub\033[0m\n");
+		exit(1);
+	}
+	if (!is_cub_file(av[1]))
+	{
+		exit(1);
+	}
+	return (1);
 }

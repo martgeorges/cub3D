@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgeorges <mgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/03 07:34:05 by mgeorges          #+#    #+#             */
-/*   Updated: 2025/02/19 08:02:43 by mgeorges         ###   ########.fr       */
+/*   Created: 2025/03/17 21:23:07 by ncollign          #+#    #+#             */
+/*   Updated: 2025/03/18 11:59:59 by mgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,30 @@
 
 int	close_window(t_data *data)
 {
-	if (data->win)
-		mlx_destroy_window(data->mlx, data->win);
+	int	i;
+
+	conditions_for_closing(data);
+	free_textures(data);
+	if (data->map)
+	{
+		i = 0;
+		while (data->map[i])
+		{
+			free(data->map[i]);
+			i++;
+		}
+		free(data->map);
+		data->map = NULL;
+	}
 	if (data->mlx)
 	{
-		mlx_destroy_display(data->mlx);
-		//mlx_destroy_image(data->mlx, data->win);
+		/*#ifdef __linux__
+			mlx_destroy_display(data->mlx);
+		#endif*/
 		free(data->mlx);
+		data->mlx = NULL;
 	}
+	printf("\nGame Exited Successfully !\n");
 	exit(0);
 	return (0);
 }
