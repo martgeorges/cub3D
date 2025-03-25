@@ -6,7 +6,7 @@
 /*   By: mgeorges <mgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 15:06:22 by mgeorges          #+#    #+#             */
-/*   Updated: 2025/03/24 11:45:04 by mgeorges         ###   ########.fr       */
+/*   Updated: 2025/03/25 10:52:08 by mgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ void	check_cub_file(char **map)
 	if (!has_content)
 	{
 		printf("\033[31mError: [.cub] file is completely empty.\033[0m\n");
+		free_map(map);
 		exit(EXIT_FAILURE);
 	}
 	print_info(has_map);

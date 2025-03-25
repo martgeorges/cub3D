@@ -6,7 +6,7 @@
 /*   By: mgeorges <mgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 09:30:15 by mgeorges          #+#    #+#             */
-/*   Updated: 2025/03/24 12:42:37 by mgeorges         ###   ########.fr       */
+/*   Updated: 2025/03/25 12:46:25 by mgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ int	main(int ac, char **av)
 		printf("\033[31mError: malloc failed for game struct\033[0m\n");
 		return (1);
 	}
+	ft_memset(game, 0, sizeof(t_data));
 	game->map = read_map_file(av[1]);
 	display_messages(game->map);
 	check_textures_and_colors(game->map);
@@ -92,5 +93,6 @@ int	main(int ac, char **av)
 	mlx_loop_hook(game->mlx, update_game, game);
 	mlx_hook(game->win, 17, 0, close_window, game);
 	mlx_loop(game->mlx);
+	close_window(game);
 	return (0);
 }

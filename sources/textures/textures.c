@@ -6,7 +6,7 @@
 /*   By: mgeorges <mgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 13:37:49 by mgeorges          #+#    #+#             */
-/*   Updated: 2025/03/24 10:45:03 by mgeorges         ###   ########.fr       */
+/*   Updated: 2025/03/25 13:02:15 by mgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ int	load_texture(t_data *game, t_image *texture, const char *file_path)
 	{
 		printf("\033[31mError: Could not load texture: '%s'\033[0m\n",
 			file_path);
+		free_map(game->map);
 		exit(EXIT_FAILURE);
 	}
 	texture->addr = mlx_get_data_addr(texture->img, &texture->bpp,

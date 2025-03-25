@@ -1,20 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free.c                                             :+:      :+:    :+:   */
+/*   memory_management.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ncollign <ncollign@student.42luxembourg    +#+  +:+       +#+        */
+/*   By: mgeorges <mgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 19:22:18 by ncollign          #+#    #+#             */
-/*   Updated: 2025/03/17 19:22:18 by ncollign         ###   ########.fr       */
+/*   Updated: 2025/03/25 09:30:31 by mgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3D.h"
 
-/*
-	This function frees all the textures
-*/
 void	free_textures(t_data *game)
 {
 	if (game->textures.wall_north.img)
@@ -27,9 +24,6 @@ void	free_textures(t_data *game)
 		mlx_destroy_image(game->mlx, game->textures.wall_west.img);
 }
 
-/*
-	Kills the window and the principal image
-*/
 void	conditions_for_closing(t_data *data)
 {
 	if (!data)
