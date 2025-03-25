@@ -6,7 +6,7 @@
 /*   By: mgeorges <mgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 10:43:42 by mgeorges          #+#    #+#             */
-/*   Updated: 2025/03/25 09:12:11 by mgeorges         ###   ########.fr       */
+/*   Updated: 2025/03/25 13:22:00 by mgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ int	parse_color(char *line)
 	{
 		free_map(rgb);
 		handle_color_error("Invalid format must be 'R, G, B' with 3 values.");
+		//free_map(rgb);
 		return (-1);
 	}
 	r = ft_atoi(rgb[0]);
