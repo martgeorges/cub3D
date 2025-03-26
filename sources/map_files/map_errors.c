@@ -6,7 +6,7 @@
 /*   By: mgeorges <mgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 09:53:09 by mgeorges          #+#    #+#             */
-/*   Updated: 2025/03/26 20:45:14 by mgeorges         ###   ########.fr       */
+/*   Updated: 2025/03/26 20:55:55 by mgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,8 @@ static int	get_start_map(char **map)
 	}
 	return (-1);
 }
+
+//static void	normalize_texture_lines(char **map);
 
 void	display_messages(char **map)
 {
