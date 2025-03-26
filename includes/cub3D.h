@@ -6,15 +6,15 @@
 /*   By: mgeorges <mgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 08:17:26 by mgeorges          #+#    #+#             */
-/*   Updated: 2025/03/26 09:05:53 by mgeorges         ###   ########.fr       */
+/*   Updated: 2025/03/26 15:12:11 by mgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB3D_H
 # define CUB3D_H
 
-# include "../minilibx-linux/mlx.h"
-//# include "../minilibx-macos/mlx.h"
+//# include "../minilibx-linux/mlx.h"
+# include "../minilibx-macos/mlx.h"
 # include <fcntl.h>
 # include <math.h>
 # include <stdio.h>
@@ -22,16 +22,16 @@
 # include <string.h>
 # include <unistd.h>
 
-#ifndef M_PI
-#define M_PI 3.141592653589793
-#endif
+# ifndef M_PI
+#  define M_PI 3.141592653589793
+# endif
 
 // raycasting
 # define FOV 1.0471975512
 
 // Controls
-# define ROT_SPEED 0.01
-# define MOVE_SPEED 0.01
+# define ROT_SPEED 0.02
+# define MOVE_SPEED 0.02
 # define LEFT 0
 # define RIGHT 1
 # define FORWARD 2
@@ -174,8 +174,7 @@ void			check_cub_file(char **map);
 int				is_map_line(char *line);
 void			check_textures_and_colors(char **map);
 void			print_info(int has_map);
-
-int is_map_closed(t_data *game);
+int				is_map_closed(t_data *game);
 
 // memory management
 void			free_textures(t_data *game);

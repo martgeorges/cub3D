@@ -6,7 +6,7 @@
 /*   By: mgeorges <mgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 09:30:15 by mgeorges          #+#    #+#             */
-/*   Updated: 2025/03/26 11:02:09 by mgeorges         ###   ########.fr       */
+/*   Updated: 2025/03/26 15:12:27 by mgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,32 +70,29 @@ int	main(int ac, char **av)
 	if (!is_map_closed(game))
 	{
 		printf("\033[31mError: Map is not closed.\033[0m\n");
-        free_map(game->map);
-        free(game);
+		free_map(game->map);
+		free(game);
 		return (1);
 	}
 	game->mlx = mlx_init();
 	if (!game->mlx)
 	{
-		//close_window(game);
-        free_map(game->map);
-        free(game);
+		free_map(game->map);
+		free(game);
 		return (1);
 	}
 	if (game->floor_color == -1 || game->ceiling_color == -1)
 	{
 		printf("\033[31mError: invalid colors in -> .cub\033[0m\n");
-		//close_window(game);
-        free_map(game->map);
-        free(game);
+		free_map(game->map);
+		free(game);
 		return (1);
 	}
 	if (!load_textures_from_map(game, av[1]))
 	{
 		printf("\033[31mError loading textures from map.\033[0m\n");
-		//close_window(game);
-        free_map(game->map);
-        free(game);
+		free_map(game->map);
+		free(game);
 		return (1);
 	}
 	printf("Game starting...\n\n");
@@ -105,17 +102,15 @@ int	main(int ac, char **av)
 	game->win = mlx_new_window(game->mlx, SCREEN_WIDTH, SCREEN_HEIGHT, "cub3D");
 	if (!game->win)
 	{
-		//close_window(game);
-        free_map(game->map);
-        free(game);
+		free_map(game->map);
+		free(game);
 		return (1);
 	}
 	game->img.img = mlx_new_image(game->mlx, SCREEN_WIDTH, SCREEN_HEIGHT);
 	if (!game->img.img)
 	{
-		//close_window(game);
-        free_map(game->map);
-        free(game);
+		free_map(game->map);
+		free(game);
 		return (1);
 	}
 	game->img.addr = mlx_get_data_addr(game->img.img, &game->img.bpp,
