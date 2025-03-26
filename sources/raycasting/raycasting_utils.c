@@ -6,7 +6,7 @@
 /*   By: mgeorges <mgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 13:16:47 by mgeorges          #+#    #+#             */
-/*   Updated: 2025/03/26 07:30:37 by mgeorges         ###   ########.fr       */
+/*   Updated: 2025/03/26 07:43:49 by mgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,19 +56,6 @@ void	set_step(t_data *game, t_step *step)
 	}
 }
 
-/*void	perform_dda(t_data *game, t_step *step, int *side)
-{
-	int	hit;
-
-	hit = 0;
-	while (!hit)
-	{
-		determine_ray_step(game, step, side);
-		if (game->map[game->ray.map_y][game->ray.map_x] == '1')
-			hit = 1;
-	}
-}*/
-
 void	perform_dda(t_data *game, t_step *step, int *side)
 {
 	int	hit;
@@ -77,16 +64,15 @@ void	perform_dda(t_data *game, t_step *step, int *side)
 	while (!hit)
 	{
 		determine_ray_step(game, step, side);
-		if (game->ray.map_y < 0 || game->ray.map_y >= game->map_height ||
-			game->ray.map_x < 0 || game->ray.map_x >= game->map_width)
+		if (game->ray.map_y < 0 || game->ray.map_y >= game->map_height
+			|| game->ray.map_x < 0 || game->ray.map_x >= game->map_width)
 		{
-			break;
+			break ;
 		}
 		if (game->map[game->ray.map_y][game->ray.map_x] == '1')
 			hit = 1;
 	}
 }
-
 
 void	determine_ray_step(t_data *game, t_step *step, int *side)
 {
@@ -110,35 +96,23 @@ void	determine_ray_step(t_data *game, t_step *step, int *side)
 	}
 }
 
-/*void	calculate_perp_dist(t_data *game, t_step *step, int side,
+void	calculate_perp_dist(t_data *game, t_step *step, int side,
 		double *perp_dist)
-{
-	if (side == 0 || side == 1)
-	{
-		*perp_dist = (game->ray.map_x - game->ray.x + (1 - step->x) * 0.5)
-			/ game->ray.dx;
-	}
-	else
-	{
-		*perp_dist = (game->ray.map_y - game->ray.y + (1 - step->y) * 0.5)
-			/ game->ray.dy;
-	}
-}*/
-
-void	calculate_perp_dist(t_data *game, t_step *step, int side, double *perp_dist)
 {
 	if (side == 0 || side == 1)
 	{
 		if (game->ray.dx == 0)
 			*perp_dist = 1e30;
 		else
-			*perp_dist = (game->ray.map_x - game->ray.x + (1 - step->x) * 0.5) / game->ray.dx;
+			*perp_dist = (game->ray.map_x - game->ray.x + (1 - step->x) * 0.5)
+				/ game->ray.dx;
 	}
 	else
 	{
 		if (game->ray.dy == 0)
 			*perp_dist = 1e30;
 		else
-			*perp_dist = (game->ray.map_y - game->ray.y + (1 - step->y) * 0.5) / game->ray.dy;
+			*perp_dist = (game->ray.map_y - game->ray.y + (1 - step->y) * 0.5)
+				/ game->ray.dy;
 	}
 }

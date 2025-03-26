@@ -6,7 +6,7 @@
 #    By: mgeorges <mgeorges@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/13 08:15:39 by mgeorges          #+#    #+#              #
-#    Updated: 2025/03/26 06:58:35 by mgeorges         ###   ########.fr        #
+#    Updated: 2025/03/26 10:02:54 by mgeorges         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,14 +21,19 @@ INCLUDES	=	-I./includes -I./minilibx-linux
 OBJ_DIR		=	./objs
 
 ERROR_SRCS	=	sources/error/error.c sources/error/error2.c
+
 LIBFT_SRCS	=	sources/libft/ft_split.c sources/libft/get_next_line.c sources/libft/libft.c \
 			sources/libft/libft2.c sources/libft/utils2.c
+
 MAP_SRCS	=	sources/map_files/map_errors.c sources/map_files/map_errors_2.c \
 			sources/map_files/map_errors_3.c sources/map_files/map_render.c \
-			sources/map_files/map_closed.c 
+			sources/map_files/map_closed.c
+			 
 RAYCAST_SRCS = sources/raycasting/raycasting.c sources/raycasting/raycasting_utils.c \
 			sources/raycasting/raycasting_utils2.c
+
 TEXTURES_SRCS =	sources/textures/textures.c sources/textures/textures_floor_ceiling.c
+
 KEYBOARD_SRCS = sources/keyboard/keyboard_handler.c
 
 SRCS	=	sources/main.c \

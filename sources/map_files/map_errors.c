@@ -6,7 +6,7 @@
 /*   By: mgeorges <mgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 09:53:09 by mgeorges          #+#    #+#             */
-/*   Updated: 2025/03/25 19:14:47 by mgeorges         ###   ########.fr       */
+/*   Updated: 2025/03/26 11:29:00 by mgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ static int	analyze_line(char *line)
 				|| line[j] == 'W')
 			{
 				player_count++;
+				printf("Joueur détecté: %c à la position: %d dans la ligne: %s\n", line[j], j, line);
 			}
 			j++;
 		}

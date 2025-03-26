@@ -6,7 +6,7 @@
 /*   By: mgeorges <mgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 15:30:43 by mgeorges          #+#    #+#             */
-/*   Updated: 2025/03/26 07:30:11 by mgeorges         ###   ########.fr       */
+/*   Updated: 2025/03/26 07:43:39 by mgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int	get_texture_x(t_data *game, t_image *texture, double perp_dist, int side)
 	return (texture_x);
 }
 
-/*void	draw_texture_column(t_data *game, int x, t_image *texture,
+void	draw_texture_column(t_data *game, int x, t_image *texture,
 		t_texture_info *info)
 {
 	double			texture_step;
@@ -69,35 +69,15 @@ int	get_texture_x(t_data *game, t_image *texture, double perp_dist, int side)
 	while (y < info->end)
 	{
 		texture_y = (int)texture_pos;
+		if (texture_y < 0)
+			texture_y = 0;
+		if (texture_y >= texture->height)
+			texture_y = texture->height - 1;
 		texture_pos += texture_step;
 		color = *(unsigned int *)(texture->addr + texture_y
 				* texture->line_length + info->texture_x * (texture->bpp / 8));
 		*(unsigned int *)(game->img.addr + (y * game->img.line_length + x
 					* (game->img.bpp / 8))) = color;
-		y++;
-	}
-}*/
-
-void	draw_texture_column(t_data *game, int x, t_image *texture, t_texture_info *info)
-{
-	double	texture_step;
-	double	texture_pos;
-	int		y;
-	int		texture_y;
-	unsigned int	color;
-
-	texture_step = (double)texture->height / info->wall_height;
-	texture_pos = (info->start - SCREEN_HEIGHT / 2 + info->wall_height / 2) * texture_step;
-	y = info->start;
-	while (y < info->end)
-	{
-		texture_y = (int)texture_pos;
-		if (texture_y < 0) texture_y = 0;
-		if (texture_y >= texture->height) texture_y = texture->height - 1; // ✅ Correction
-
-		texture_pos += texture_step;
-		color = *(unsigned int *)(texture->addr + texture_y * texture->line_length + info->texture_x * (texture->bpp / 8));
-		*(unsigned int *)(game->img.addr + (y * game->img.line_length + x * (game->img.bpp / 8))) = color;
 		y++;
 	}
 }

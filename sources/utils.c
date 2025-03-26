@@ -6,7 +6,7 @@
 /*   By: mgeorges <mgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 21:23:07 by ncollign          #+#    #+#             */
-/*   Updated: 2025/03/26 06:57:41 by mgeorges         ###   ########.fr       */
+/*   Updated: 2025/03/26 09:36:36 by mgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ int	close_window(t_data *data)
 		mlx_destroy_display(data->mlx);
 		free(data->mlx);
 		data->mlx = NULL;
+		free(data);
 	}
 	printf("\nGame Exited Successfully !\n");
 	exit(0);
