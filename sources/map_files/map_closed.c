@@ -6,13 +6,13 @@
 /*   By: mgeorges <mgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 19:23:57 by mgeorges          #+#    #+#             */
-/*   Updated: 2025/03/26 17:02:48 by mgeorges         ###   ########.fr       */
+/*   Updated: 2025/03/26 20:32:32 by mgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3D.h"
 
-int	flood_fill(char **map, int x, int y, int rows, int cols, char **visited)
+/*int	flood_fill(char **map, int x, int y, int rows, int cols, char **visited)
 {
 	if (y < 0 || y >= rows || x < 0 || x >= cols)
 		return (0);
@@ -60,62 +60,63 @@ int	is_map_closed(t_data *game)
 		free(visited[y++]);
 	free(visited);
 	return (res);
+}*/
+static int	flood_fill(char **map, int x, int y, char **visited)
+{
+	if (y < 0 || x < 0 || !map[y] || !map[y][x] || map[y][x] == '1'
+		|| visited[y][x] == '1')
+		return (1);
+	if ((x == 0 || y == 0 || !map[y + 1] || !map[y][x + 1]) && map[y][x] == '0')
+		return (0);
+	visited[y][x] = '1';
+	if (!flood_fill(map, x + 1, y, visited) || !flood_fill(map, x - 1, y,
+			visited) || !flood_fill(map, x, y + 1, visited) || !flood_fill(map,
+			x, y - 1, visited))
+		return (0);
+	return (1);
 }
 
-/*int	flood_fill(char **map, int x, int y, int rows, char **visited)
+static void	*free_visited(char **visited, int rows)
 {
-	int	cols;
+	int	y;
 
-	if (y < 0 || y >= rows)
-		return (0);
-	if (!map[y])
-		return (0);
-	cols = (int)ft_strlen(map[y]);
-	if (x < 0 || x >= cols)
-		return (0);
-	if (map[y][x] == ' ')
-		return (0);
-	if (map[y][x] == '1' || visited[y][x] == '1')
-		return (1);
-	visited[y][x] = '1';
-	if (flood_fill(map, x + 1, y, rows, visited) == 0)
-		return (0);
-	if (flood_fill(map, x - 1, y, rows, visited) == 0)
-		return (0);
-	if (flood_fill(map, x, y + 1, rows, visited) == 0)
-		return (0);
-	return (flood_fill(map, x, y - 1, rows, visited));
+	y = 0;
+	while (y < rows)
+		free(visited[y++]);
+	free(visited);
+	return (NULL);
+}
+
+static char	**init_visited(int height, int width)
+{
+	char	**visited;
+	int		y;
+
+	visited = (char **)malloc(sizeof(char *) * height);
+	if (!visited)
+		return (NULL);
+	y = 0;
+	while (y < height)
+	{
+		visited[y] = (char *)malloc(sizeof(char) * (width + 1));
+		if (!visited[y])
+			return (free_visited(visited, y));
+		ft_memset(visited[y], '0', width);
+		visited[y][width] = '\0';
+		y++;
+	}
+	return (visited);
 }
 
 int	is_map_closed(t_data *game)
 {
 	char	**visited;
-	int		y;
 	int		res;
 
-	visited = (char **)malloc(sizeof(char *) * game->map_height);
+	visited = init_visited(game->map_height, game->map_width);
 	if (!visited)
 		return (0);
-	y = 0;
-	while (y < game->map_height)
-	{
-		visited[y] = (char *)malloc(sizeof(char) * (game->map_width + 1));
-		if (!visited[y])
-		{
-			while (y > 0)
-				free(visited[--y]);
-			free(visited);
-			return (0);
-		}
-		ft_memset(visited[y], '0', game->map_width);
-		visited[y][game->map_width] = '\0';
-		y++;
-	}
-	res = flood_fill(game->map, (int)game->player.x, (int)game->player.y,
-			game->map_height, visited);
-	y = 0;
-	while (y < game->map_height)
-		free(visited[y++]);
-	free(visited);
+	res = flood_fill(game->map, game->player.x, game->player.y, visited);
+	free_visited(visited, game->map_height);
 	return (res);
-}*/
+}

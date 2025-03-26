@@ -6,7 +6,7 @@
 /*   By: mgeorges <mgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 09:53:09 by mgeorges          #+#    #+#             */
-/*   Updated: 2025/03/26 16:51:38 by mgeorges         ###   ########.fr       */
+/*   Updated: 2025/03/26 20:29:30 by mgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static int	analyze_line(char *line)
 
 	j = 0;
 	player_count = 0;
-	while (line[j] == ' ')
+	while (line[j] == ' ' || line[j] == '\t')
 		j++;
 	if (!(ft_strncmp(line, "NO", 2) == 0 || ft_strncmp(line, "SO", 2) == 0
 			|| ft_strncmp(line, "WE", 2) == 0 || ft_strncmp(line, "EA",
@@ -72,7 +72,6 @@ static int	get_start_map(char **map)
 	}
 	return (-1);
 }
-
 void	display_messages(char **map)
 {
 	int	start_map;
