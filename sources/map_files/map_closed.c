@@ -6,7 +6,7 @@
 /*   By: mgeorges <mgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 19:23:57 by mgeorges          #+#    #+#             */
-/*   Updated: 2025/03/25 19:44:24 by mgeorges         ###   ########.fr       */
+/*   Updated: 2025/03/26 07:01:45 by mgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,9 +77,6 @@ int is_map_closed(t_data *game)
     free(visited);
     return (result);
 }*/
-
-#include <stdlib.h>
-#include <string.h>
 
 int	flood_fill(char **map, int x, int y, int rows, char **visited)
 {

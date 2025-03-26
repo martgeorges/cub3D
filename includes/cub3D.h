@@ -6,21 +6,25 @@
 /*   By: mgeorges <mgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 08:17:26 by mgeorges          #+#    #+#             */
-/*   Updated: 2025/03/25 19:40:37 by mgeorges         ###   ########.fr       */
+/*   Updated: 2025/03/26 07:18:44 by mgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB3D_H
 # define CUB3D_H
 
-//# include "../minilibx-linux/mlx.h"
-# include "../minilibx-macos/mlx.h"
+# include "../minilibx-linux/mlx.h"
+//# include "../minilibx-macos/mlx.h"
 # include <fcntl.h>
 # include <math.h>
 # include <stdio.h>
 # include <stdlib.h>
 # include <string.h>
 # include <unistd.h>
+
+#ifndef M_PI
+#define M_PI 3.141592653589793
+#endif
 
 // raycasting
 # define FOV 1.0471975512

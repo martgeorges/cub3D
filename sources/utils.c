@@ -6,7 +6,7 @@
 /*   By: mgeorges <mgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 21:23:07 by ncollign          #+#    #+#             */
-/*   Updated: 2025/03/18 11:59:59 by mgeorges         ###   ########.fr       */
+/*   Updated: 2025/03/26 06:57:41 by mgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,7 @@ int	close_window(t_data *data)
 	}
 	if (data->mlx)
 	{
-		/*#ifdef __linux__
-			mlx_destroy_display(data->mlx);
-		#endif*/
+		mlx_destroy_display(data->mlx);
 		free(data->mlx);
 		data->mlx = NULL;
 	}
