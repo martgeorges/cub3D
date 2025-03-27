@@ -6,15 +6,15 @@
 /*   By: mgeorges <mgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 08:17:26 by mgeorges          #+#    #+#             */
-/*   Updated: 2025/03/26 15:12:11 by mgeorges         ###   ########.fr       */
+/*   Updated: 2025/03/27 13:41:37 by mgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB3D_H
 # define CUB3D_H
 
-//# include "../minilibx-linux/mlx.h"
-# include "../minilibx-macos/mlx.h"
+# include "../minilibx-linux/mlx.h"
+//# include "../minilibx-macos/mlx.h"
 # include <fcntl.h>
 # include <math.h>
 # include <stdio.h>
@@ -173,7 +173,7 @@ int				is_line_empty(char *line);
 void			check_cub_file(char **map);
 int				is_map_line(char *line);
 void			check_textures_and_colors(char **map);
-void			print_info(int has_map);
+void			print_info(int has_map, char **map);
 int				is_map_closed(t_data *game);
 
 // memory management

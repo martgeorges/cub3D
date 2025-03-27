@@ -6,7 +6,7 @@
 /*   By: mgeorges <mgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 19:25:20 by ncollign          #+#    #+#             */
-/*   Updated: 2025/03/24 10:44:28 by mgeorges         ###   ########.fr       */
+/*   Updated: 2025/03/27 08:51:09 by mgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ char	*ft_strtrim(const char *s, const char *set)
 		return (NULL);
 	while (s[start] && is_charset(s[start], set))
 		start++;
-	end = strlen(s) - 1;
+	end = ft_strlen(s) - 1;
 	while (end > start && is_charset(s[end], set))
 		end--;
 	trimmed = (char *)malloc(end - start + 2);

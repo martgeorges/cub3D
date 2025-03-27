@@ -6,7 +6,7 @@
 #    By: mgeorges <mgeorges@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/13 08:15:39 by mgeorges          #+#    #+#              #
-#    Updated: 2025/03/26 13:43:22 by mgeorges         ###   ########.fr        #
+#    Updated: 2025/03/27 07:27:26 by mgeorges         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,16 +34,16 @@ RAYCAST_SRCS = sources/raycasting/raycasting.c sources/raycasting/raycasting_uti
 
 TEXTURES_SRCS =	sources/textures/textures.c sources/textures/textures_floor_ceiling.c
 
-KEYBOARD_SRCS = sources/keyboard/keyboard_macos.c
+KEYBOARD_SRCS = sources/keyboard/keyboard_handler.c
 
 SRCS	=	sources/main.c \
 		sources/utils.c \
 		sources/memory_management.c \
 		$(ERROR_SRCS) $(LIBFT_SRCS) $(MAP_SRCS) $(RAYCAST_SRCS) $(TEXTURES_SRCS) $(KEYBOARD_SRCS)
 		
-#LIBRARY     = -L./minilibx-linux -lmlx -lX11 -lXext -lXrandr -lXrender -lm
+LIBRARY     = -L./minilibx-linux -lmlx -lX11 -lXext -lXrandr -lXrender -lm
 #LIBRARY	= -L./minilibx-macos -lmlx -lX11 -lXext -lm
-LIBRARY		=	-L./minilibx-macos -lmlx -framework OpenGL -framework AppKit
+#LIBRARY		=	-L./minilibx-macos -lmlx -framework OpenGL -framework AppKit
 
 OBJS	=	$(patsubst sources/%.c, $(OBJ_DIR)/%.o, $(SRCS))
 

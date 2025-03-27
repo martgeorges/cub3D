@@ -6,7 +6,7 @@
 /*   By: mgeorges <mgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 10:43:42 by mgeorges          #+#    #+#             */
-/*   Updated: 2025/03/24 11:54:00 by mgeorges         ###   ########.fr       */
+/*   Updated: 2025/03/27 13:09:31 by mgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	handle_color_error(const char *msg)
 	exit(EXIT_FAILURE);
 }
 
-int	parse_color(char *line)
+int	parse_color(char *line, t_data *game)
 {
 	int		r;
 	int		g;
@@ -36,6 +36,17 @@ int	parse_color(char *line)
 	rgb = ft_split(line, ',');
 	if (!rgb || !rgb[0] || !rgb[1] || !rgb[2] || rgb[3])
 	{
+		free_map(game->map);
+		if (rgb)
+		{
+			int i = 0;
+			while (rgb[i])
+			{
+				free(rgb[i]);
+				i++;
+			}
+			free(rgb);
+		}
 		handle_color_error("Invalid format must be 'R, G, B' with 3 values.");
 		return (-1);
 	}
@@ -54,7 +65,7 @@ void	parse_map_info(t_data *game, char *line)
 	while (*line == ' ')
 		line++;
 	if (*line == 'F')
-		game->floor_color = parse_color(line + 1);
+		game->floor_color = parse_color(line + 1, game);
 	else if (*line == 'C')
-		game->ceiling_color = parse_color(line + 1);
+		game->ceiling_color = parse_color(line + 1, game);
 }

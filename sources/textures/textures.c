@@ -6,11 +6,38 @@
 /*   By: mgeorges <mgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 13:37:49 by mgeorges          #+#    #+#             */
-/*   Updated: 2025/03/24 10:45:03 by mgeorges         ###   ########.fr       */
+/*   Updated: 2025/03/27 13:42:56 by mgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3D.h"
+
+int	close_window_texture(t_data *data)
+{
+	int	i;
+
+	if (data->map)
+	{
+		i = 0;
+		while (data->map[i])
+		{
+			free(data->map[i]);
+			i++;
+		}
+		free(data->map);
+		data->map = NULL;
+	}
+	if (data->mlx)
+	{
+		mlx_destroy_display(data->mlx);
+		free(data->mlx);
+		data->mlx = NULL;
+	}
+	free(data);
+	printf("\nJeu quitté avec succès !\n");
+	exit(0);
+	return (0);
+}
 
 int	load_texture(t_data *game, t_image *texture, const char *file_path)
 {
@@ -20,6 +47,9 @@ int	load_texture(t_data *game, t_image *texture, const char *file_path)
 	{
 		printf("\033[31mError: Could not load texture: '%s'\033[0m\n",
 			file_path);
+		free_textures(game);
+		close_window_texture(game);
+		free_map(game->map);
 		exit(EXIT_FAILURE);
 	}
 	texture->addr = mlx_get_data_addr(texture->img, &texture->bpp,
@@ -38,14 +68,13 @@ int	load_texture_by_id(t_data *game, char *line, t_image *texture)
 	path = ft_strtrim(line + i, " \n");
 	if (!path || !*path)
 	{
-		printf("Error: Invalid texture path\n");
+		printf("\033[31mError: Invalid texture path\033[0m\\n");
 		free(path);
 		return (0);
 	}
 	if (!load_texture(game, texture, path))
 	{
 		free(path);
-		free_textures(game);
 		return (0);
 	}
 	free(path);
@@ -91,5 +120,6 @@ int	parse_map_file(t_data *game, const char *map_file)
 		free(line);
 		line = get_next_line(fd);
 	}
+	close(fd);
 	return (0);
 }
