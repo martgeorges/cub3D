@@ -6,7 +6,7 @@
 /*   By: mgeorges <mgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 09:53:09 by mgeorges          #+#    #+#             */
-/*   Updated: 2025/03/27 07:49:50 by mgeorges         ###   ########.fr       */
+/*   Updated: 2025/03/29 14:02:44 by mgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,40 @@ static int	analyze_line(char *line)
 				|| line[j] == 'W')
 			{
 				player_count++;
-				//printf("Joueur détecté: %c à la position: %d dans la ligne:%s\n", line[j], j, line);
 			}
 			j++;
 		}
 	}
 	return (player_count);
 }
+
+//to open with a white space at the beginning
+/*static int	analyze_line(char *line)
+{
+	int	j;
+	int	player_count;
+
+	j = 0;
+	player_count = 0;
+	while (line[j] == ' ' || line[j] == '\t')
+		j++;
+	if (ft_strncmp(&line[j], "NO", 2) == 0 || ft_strncmp(&line[j], "SO", 2) == 0
+		|| ft_strncmp(&line[j], "WE", 2) == 0 || ft_strncmp(&line[j], "EA", 2) == 0
+		|| ft_strncmp(&line[j], "F", 1) == 0 || ft_strncmp(&line[j], "C", 1) == 0)
+	{
+		return (0);
+	}
+	while (line[j])
+	{
+		if (line[j] == 'N' || line[j] == 'S' || line[j] == 'E' || line[j] == 'W')
+		{
+			player_count++;
+		}
+		j++;
+	}
+	return (player_count);
+}*/
+
 
 static int	count_players(char **map, int start)
 {
@@ -73,14 +100,11 @@ static int	get_start_map(char **map)
 	return (-1);
 }
 
-//static void	normalize_texture_lines(char **map);
-
 void	display_messages(char **map)
 {
 	int	start_map;
 	int	player_count;
 
-	//normalize_texture_lines(map);
 	start_map = get_start_map(map);
 	check_cub_file(map);
 	if (start_map == -1)
@@ -98,36 +122,3 @@ void	display_messages(char **map)
 		exit(EXIT_FAILURE);
 	}
 }
-
-/*static void	normalize_texture_lines(char **map)
-{
-	int		i;
-	int		j;
-	char	*new_line;
-
-	i = 0;
-	while (map[i])
-	{
-		j = 0;
-		while (map[i][j] == ' ' || map[i][j] == '\t')
-			// Ignorer les espaces/tabs en début de ligne
-			j++;
-		if (!ft_strncmp(&map[i][j], "NO", 2) || !ft_strncmp(&map[i][j], "SO", 2)
-			|| !ft_strncmp(&map[i][j], "WE", 2) || !ft_strncmp(&map[i][j], "EA",
-				2)
-			|| !ft_strncmp(&map[i][j], "F", 1) || !ft_strncmp(&map[i][j], "C",
-				1))
-		{
-			new_line = strdup(&map[i][j]);
-				// On copie la ligne sans les espaces avant
-			if (!new_line)
-			{
-				printf("\033[31mError: Memory allocation failed.\033[0m\n");
-				exit(EXIT_FAILURE);
-			}
-			free(map[i]); // On libère l'ancienne ligne
-			map[i] = new_line; // On met la nouvelle ligne sans espaces
-		}
-		i++;
-	}
-}*/

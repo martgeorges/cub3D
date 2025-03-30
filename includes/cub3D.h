@@ -6,15 +6,15 @@
 /*   By: mgeorges <mgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 08:17:26 by mgeorges          #+#    #+#             */
-/*   Updated: 2025/03/27 13:41:37 by mgeorges         ###   ########.fr       */
+/*   Updated: 2025/03/27 15:55:16 by mgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB3D_H
 # define CUB3D_H
 
-# include "../minilibx-linux/mlx.h"
-//# include "../minilibx-macos/mlx.h"
+//# include "../minilibx-linux/mlx.h"
+# include "../minilibx-macos/mlx.h"
 # include <fcntl.h>
 # include <math.h>
 # include <stdio.h>
@@ -117,6 +117,14 @@ typedef struct s_texture_info
 	int			texture_x;
 	int			wall_height;
 }				t_texture_info;
+
+
+typedef struct s_flood
+{
+	char	**visited;
+	int		height;
+	int		width;
+}	t_flood;
 
 // map
 char			**read_map_file(char *filename);

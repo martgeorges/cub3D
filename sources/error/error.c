@@ -6,7 +6,7 @@
 /*   By: mgeorges <mgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 13:30:53 by mgeorges          #+#    #+#             */
-/*   Updated: 2025/03/27 09:08:40 by mgeorges         ###   ########.fr       */
+/*   Updated: 2025/03/27 15:56:29 by mgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ int	check_error(int ac, char **av)
 	if (ac != 2)
 	{
 		printf("\033[31mError: ./cub3D maps/pathtomap.cub\033[0m\n");
-
 		exit(1);
 	}
 	if (!is_cub_file(av[1]))
