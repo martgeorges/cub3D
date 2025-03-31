@@ -6,7 +6,7 @@
 /*   By: mgeorges <mgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 19:23:57 by mgeorges          #+#    #+#             */
-/*   Updated: 2025/03/31 10:03:44 by mgeorges         ###   ########.fr       */
+/*   Updated: 2025/03/31 14:07:38 by mgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ int	is_map_closed(t_data *game)
 	return (res);
 }*/
 
-/*static int	flood_fill(char **map, int x, int y, t_flood *f)
+static int	flood_fill(char **map, int x, int y, t_flood *f)
 {
 	if (y < 0 || x < 0 || y >= f->height || x >= f->width
 		|| map[y][x] == '1' || f->visited[y][x] == '1')
@@ -126,9 +126,9 @@ int	is_map_closed(t_data *game)
 	res = flood_fill(game->map, game->player.x, game->player.y, &f);
 	free_visited(f.visited, f.height);
 	return (res);
-}*/
+}
 
-static int	flood_fill(char **map, int x, int y, char **visited)
+/*static int	flood_fill(char **map, int x, int y, char **visited)
 {
 	if (y < 0 || x < 0 || !map[y] || !map[y][x] || map[y][x] == '1'
 		|| visited[y][x] == '1')
@@ -186,4 +186,4 @@ int	is_map_closed(t_data *game)
 	res = flood_fill(game->map, game->player.x, game->player.y, visited);
 	free_visited(visited, game->map_height);
 	return (res);
-}
+}*/

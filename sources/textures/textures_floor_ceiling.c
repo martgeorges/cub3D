@@ -6,7 +6,7 @@
 /*   By: mgeorges <mgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 10:43:42 by mgeorges          #+#    #+#             */
-/*   Updated: 2025/03/31 07:09:58 by mgeorges         ###   ########.fr       */
+/*   Updated: 2025/03/31 13:36:08 by mgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,10 @@ int	rgb_to_int(int r, int g, int b)
 	return ((r << 16) | (g << 8) | b);
 }
 
-void	handle_color_error(const char *msg)
+void	handle_color_error(const char *msg, t_data *game)
 {
 	printf("\033[31mError: %s\033[0m\n", msg);
+	free(game);
 	exit(EXIT_FAILURE);
 }
 
@@ -37,7 +38,7 @@ static int	is_invalid_rgb(char **rgb, t_data *game)
 				free(rgb[i++]);
 			free(rgb);
 		}
-		handle_color_error("Invalid format must be 'R, G, B' with 3 values.");
+		handle_color_error("Invalid format must be 'R, G, B' with 3 values.", game);
 		return (1);
 	}
 	return (0);

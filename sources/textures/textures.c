@@ -6,7 +6,7 @@
 /*   By: mgeorges <mgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 13:37:49 by mgeorges          #+#    #+#             */
-/*   Updated: 2025/03/31 10:23:58 by mgeorges         ###   ########.fr       */
+/*   Updated: 2025/03/31 13:42:35 by mgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	close_window_texture(t_data *data)
 	}
 	free(data);
 	printf("\nJeu quitté avec succès !\n");
-	exit(0);
+	exit(EXIT_FAILURE);
 	return (0);
 }
 

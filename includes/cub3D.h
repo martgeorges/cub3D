@@ -6,7 +6,7 @@
 /*   By: mgeorges <mgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 08:17:26 by mgeorges          #+#    #+#             */
-/*   Updated: 2025/03/31 13:17:01 by mgeorges         ###   ########.fr       */
+/*   Updated: 2025/03/31 13:54:20 by mgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -204,4 +204,6 @@ char			**ft_split(char const *s, char c);
 char			*ft_substr(char const *s, unsigned int start, size_t len);
 char			*ft_strtrim(const char *s, const char *set);
 
+
+void free_game_resources(t_data *game);
 #endif
