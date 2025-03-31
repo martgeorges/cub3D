@@ -6,7 +6,7 @@
 /*   By: mgeorges <mgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 09:30:15 by mgeorges          #+#    #+#             */
-/*   Updated: 2025/03/31 10:37:56 by mgeorges         ###   ########.fr       */
+/*   Updated: 2025/03/31 13:13:37 by mgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,8 @@ int	main(int ac, char **av)
 	}
 	init_game(game);
 	game->map = read_map_file(av[1]);
-	display_messages(game->map);
-	check_textures_and_colors(game->map);
+	display_messages(game->map, game);
+	check_textures_and_colors(game->map, game);
 	game->map_height = 0;
 	game->map_width = 0;
 	while (game->map[game->map_height])

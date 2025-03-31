@@ -6,7 +6,7 @@
 /*   By: mgeorges <mgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 09:53:09 by mgeorges          #+#    #+#             */
-/*   Updated: 2025/03/31 07:08:49 by mgeorges         ###   ########.fr       */
+/*   Updated: 2025/03/31 13:13:02 by mgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,16 +72,17 @@ static int	get_start_map(char **map)
 	return (-1);
 }
 
-void	display_messages(char **map)
+void	display_messages(char **map, t_data *game)
 {
 	int	start_map;
 	int	player_count;
 
 	start_map = get_start_map(map);
-	check_cub_file(map);
+	check_cub_file(map, game);
 	if (start_map == -1)
 	{
 		printf("\033[31mError: Map not found in the file\033[0m\n");
+		free(game);
 		free_map(map);
 		exit(EXIT_FAILURE);
 	}
@@ -90,6 +91,7 @@ void	display_messages(char **map)
 	{
 		printf("\033[31mError: map must contain exactly [1] player.\033[0m\n");
 		printf("\033[31m->Number of players: [%d]\033[0m\n", player_count);
+		free(game);
 		free_map(map);
 		exit(EXIT_FAILURE);
 	}

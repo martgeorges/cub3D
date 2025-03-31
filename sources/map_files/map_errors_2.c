@@ -6,7 +6,7 @@
 /*   By: mgeorges <mgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 15:06:22 by mgeorges          #+#    #+#             */
-/*   Updated: 2025/03/27 07:46:34 by mgeorges         ###   ########.fr       */
+/*   Updated: 2025/03/31 13:16:43 by mgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	is_line_empty(char *line)
 	return (1);
 }
 
-void	check_cub_file(char **map)
+void	check_cub_file(char **map, t_data *game)
 {
 	int	i;
 	int	has_map;
@@ -45,17 +45,19 @@ void	check_cub_file(char **map)
 	if (!has_content)
 	{
 		printf("\033[31mError: [.cub] file is completely empty.\033[0m\n");
+		free(game);
 		free_map(map);
 		exit(EXIT_FAILURE);
 	}
-	print_info(has_map, map);
+	print_info(has_map, map, game);
 }
 
-void	print_info(int has_map, char **map)
+void	print_info(int has_map, char **map, t_data *game)
 {
 	if (!has_map)
 	{
 		printf("\033[31mError: only map in file\033[0m\n");
+		free(game);
 		free_map(map);
 		exit(EXIT_FAILURE);
 	}

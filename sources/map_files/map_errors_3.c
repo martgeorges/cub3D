@@ -6,7 +6,7 @@
 /*   By: mgeorges <mgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 15:55:03 by mgeorges          #+#    #+#             */
-/*   Updated: 2025/03/27 08:13:54 by mgeorges         ###   ########.fr       */
+/*   Updated: 2025/03/31 13:08:06 by mgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void	validate_textures_and_colors(char **map, int *textures, int *colors)
 	}
 }
 
-void	check_textures_and_colors(char **map)
+void	check_textures_and_colors(char **map, t_data *game)
 {
 	int	textures[4];
 	int	colors[2];
@@ -76,12 +76,14 @@ void	check_textures_and_colors(char **map)
 	{
 		printf("\033[31mError: Missing (NO, SO, WE, EA) in file.\033[0m\n");
 		free_map(map);
+		free(game);
 		exit(EXIT_FAILURE);
 	}
 	if (!colors[0] || !colors[1])
 	{
 		printf("\033[31mError: Missing colors (F and/or C) in file.\033[0m\n");
 		free_map(map);
+		free(game);
 		exit(EXIT_FAILURE);
 	}
 }

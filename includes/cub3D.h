@@ -6,7 +6,7 @@
 /*   By: mgeorges <mgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 08:17:26 by mgeorges          #+#    #+#             */
-/*   Updated: 2025/03/31 08:40:37 by mgeorges         ###   ########.fr       */
+/*   Updated: 2025/03/31 13:17:01 by mgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -175,13 +175,13 @@ int				is_cub_file(const char *filename);
 int				check_error(int ac, char **av);
 
 // map error
-void			display_messages(char **map);
+void			display_messages(char **map, t_data *game);
 
 int				is_line_empty(char *line);
-void			check_cub_file(char **map);
+void			check_cub_file(char **map, t_data *game);
 int				is_map_line(char *line);
-void			check_textures_and_colors(char **map);
-void			print_info(int has_map, char **map);
+void			check_textures_and_colors(char **map, t_data *game);
+void			print_info(int has_map, char **map, t_data *game);
 int				is_map_closed(t_data *game);
 
 // memory management
