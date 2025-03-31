@@ -6,11 +6,24 @@
 /*   By: mgeorges <mgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 09:30:15 by mgeorges          #+#    #+#             */
-/*   Updated: 2025/03/27 13:50:13 by mgeorges         ###   ########.fr       */
+/*   Updated: 2025/03/31 10:37:56 by mgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3D.h"
+
+void	init_game(t_data *game)
+{
+	game->mlx = NULL;
+	game->win = NULL;
+	game->map = NULL;
+	game->textures.wall_north.img = NULL;
+	game->textures.wall_south.img = NULL;
+	game->textures.wall_west.img = NULL;
+	game->textures.wall_east.img = NULL;
+	game->floor_color = -1;
+	game->ceiling_color = -1;
+}
 
 int	main(int ac, char **av)
 {
@@ -25,6 +38,7 @@ int	main(int ac, char **av)
 		printf("\033[31mError: malloc failed for game struct\033[0m\n");
 		return (1);
 	}
+	init_game(game);
 	game->map = read_map_file(av[1]);
 	display_messages(game->map);
 	check_textures_and_colors(game->map);
@@ -40,7 +54,7 @@ int	main(int ac, char **av)
 	while (game->map[y])
 	{
 		parse_map_info(game, game->map[y]);
-		y++;
+		y++;	
 	}
 	y = 0;
 	while (game->map[y])
@@ -88,11 +102,14 @@ int	main(int ac, char **av)
 		free(game);
 		return (1);
 	}
-	if (!load_textures_from_map(game, av[1]))
+	load_textures_from_map(game, av[1]);
+	/*if (!load_textures_from_map(game, av[1]))
 	{
 		printf("\033[31mError loading textures from map.\033[0m\n");
+		free_map(game->map);
+		free(game);
 		return (1);
-	}
+	}*/
 	printf("Game starting...\n\n");
 	printf("░█▀▀░█░█░█▀▄░▀▀█░█▀▄░░\n");
 	printf("░█░░░█░█░█▀▄░░▀▄░█░█░░\n");

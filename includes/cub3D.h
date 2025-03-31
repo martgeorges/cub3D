@@ -6,7 +6,7 @@
 /*   By: mgeorges <mgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 08:17:26 by mgeorges          #+#    #+#             */
-/*   Updated: 2025/03/27 13:41:37 by mgeorges         ###   ########.fr       */
+/*   Updated: 2025/03/31 08:40:37 by mgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@ typedef struct s_texture
 	t_image		wall_south;
 	t_image		wall_east;
 	t_image		wall_west;
+	void		*img;
 }				t_texture;
 
 typedef struct s_ray
@@ -117,6 +118,13 @@ typedef struct s_texture_info
 	int			texture_x;
 	int			wall_height;
 }				t_texture_info;
+
+typedef struct s_flood
+{
+	char	**visited;
+	int		height;
+	int		width;
+}	t_flood;
 
 // map
 char			**read_map_file(char *filename);
