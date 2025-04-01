@@ -6,7 +6,7 @@
 /*   By: mgeorges <mgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 08:17:26 by mgeorges          #+#    #+#             */
-/*   Updated: 2025/04/01 10:48:42 by mgeorges         ###   ########.fr       */
+/*   Updated: 2025/04/01 13:48:02 by mgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,8 +109,6 @@ typedef struct s_data
 	int			keys[512];
 	int			ceiling_color;
 	int			floor_color;
-	char		*line;
-	char		*path;
 }				t_data;
 
 typedef struct s_texture_info
@@ -130,6 +128,9 @@ typedef struct s_flood
 
 // map
 char			**read_map_file(char *filename);
+
+
+int	test(char **map, int *textures);
 
 // Raycasting
 void			raycasting(t_data *game);
@@ -181,6 +182,7 @@ int				is_map_line(char *line);
 void			check_textures_and_colors(char **map, t_data *game);
 void			print_info(int has_map, char **map, t_data *game);
 int				is_map_closed(t_data *game);
+
 
 // memory management
 void			free_textures(t_data *game);
