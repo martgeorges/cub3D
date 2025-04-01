@@ -6,7 +6,7 @@
 /*   By: mgeorges <mgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 13:37:49 by mgeorges          #+#    #+#             */
-/*   Updated: 2025/04/01 09:31:44 by mgeorges         ###   ########.fr       */
+/*   Updated: 2025/04/01 10:48:57 by mgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,11 @@ int	close_window_texture(t_data *data, char *line, char *path)
 	free(line);
 	free(data);
 	printf("\nJeu quitté avec succès !\n");
-	exit(EXIT_FAILURE);
+	exit(0);
 	return (0);
 }
 
-int	load_texture(t_data *game, t_image *texture, const char *file_path,
-		char *line, char *path)
+int	load_texture(t_data *game, t_image *texture, const char *file_path, char *line, char *path)
 {
 	texture->img = mlx_xpm_file_to_image(game->mlx, (char *)file_path,
 			&texture->width, &texture->height);
@@ -52,7 +51,8 @@ int	load_texture(t_data *game, t_image *texture, const char *file_path,
 			file_path);
 		free_textures(game);
 		close_window_texture(game, line, path);
-		return (1);
+		free_map(game->map);
+		exit(EXIT_FAILURE);
 	}
 	texture->addr = mlx_get_data_addr(texture->img, &texture->bpp,
 			&texture->line_length, &texture->endian);
@@ -71,10 +71,12 @@ int	load_texture_by_id(t_data *game, char *line, t_image *texture)
 	if (!path || !*path)
 	{
 		printf("\033[31mError: Invalid texture path\033[0m\\n");
+		free(path);
 		return (0);
 	}
 	if (!load_texture(game, texture, path, line, path))
 	{
+		free(path);
 		return (0);
 	}
 	free(path);

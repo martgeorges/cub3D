@@ -6,7 +6,7 @@
 /*   By: mgeorges <mgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 08:17:26 by mgeorges          #+#    #+#             */
-/*   Updated: 2025/04/01 09:31:38 by mgeorges         ###   ########.fr       */
+/*   Updated: 2025/04/01 10:48:42 by mgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -166,6 +166,7 @@ int				load_texture(t_data *game, t_image *texture,
 int				load_texture_by_id(t_data *game, char *line, t_image *texture);
 int				load_textures_from_map(t_data *game, const char *map_file);
 int				parse_map_file(t_data *game, const char *map_file);
+int	close_window_texture(t_data *data, char *line, char *path);
 
 // error management
 int				is_cub_file(const char *filename);
