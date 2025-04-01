@@ -6,7 +6,7 @@
 /*   By: mgeorges <mgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 08:17:26 by mgeorges          #+#    #+#             */
-/*   Updated: 2025/03/31 13:54:20 by mgeorges         ###   ########.fr       */
+/*   Updated: 2025/04/01 09:31:38 by mgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,6 +109,8 @@ typedef struct s_data
 	int			keys[512];
 	int			ceiling_color;
 	int			floor_color;
+	char		*line;
+	char		*path;
 }				t_data;
 
 typedef struct s_texture_info
@@ -121,10 +123,10 @@ typedef struct s_texture_info
 
 typedef struct s_flood
 {
-	char	**visited;
-	int		height;
-	int		width;
-}	t_flood;
+	char		**visited;
+	int			height;
+	int			width;
+}				t_flood;
 
 // map
 char			**read_map_file(char *filename);
@@ -158,14 +160,9 @@ int				key_press(int keycode, t_data *game);
 
 // textures
 void			parse_map_info(t_data *game, char *line);
-int				load_texture(t_data *game, t_image *texture,
-					const char *file_path);
-// int				load_textures_wall(t_data *game);
-
-// test textures
 char			*get_next_line(int fd);
 int				load_texture(t_data *game, t_image *texture,
-					const char *file_path);
+					const char *file_path, char *path, char *line);
 int				load_texture_by_id(t_data *game, char *line, t_image *texture);
 int				load_textures_from_map(t_data *game, const char *map_file);
 int				parse_map_file(t_data *game, const char *map_file);
@@ -204,6 +201,4 @@ char			**ft_split(char const *s, char c);
 char			*ft_substr(char const *s, unsigned int start, size_t len);
 char			*ft_strtrim(const char *s, const char *set);
 
-
-void free_game_resources(t_data *game);
 #endif

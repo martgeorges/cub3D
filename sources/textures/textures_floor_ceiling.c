@@ -6,7 +6,7 @@
 /*   By: mgeorges <mgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 10:43:42 by mgeorges          #+#    #+#             */
-/*   Updated: 2025/03/31 13:36:08 by mgeorges         ###   ########.fr       */
+/*   Updated: 2025/04/01 08:15:31 by mgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,8 @@ static int	is_invalid_rgb(char **rgb, t_data *game)
 				free(rgb[i++]);
 			free(rgb);
 		}
-		handle_color_error("Invalid format must be 'R, G, B' with 3 values.", game);
+		handle_color_error("Invalid format must be 'R, G, B' with 3 values.",
+			game);
 		return (1);
 	}
 	return (0);
