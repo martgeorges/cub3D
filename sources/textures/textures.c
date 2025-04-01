@@ -6,16 +6,16 @@
 /*   By: mgeorges <mgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 13:37:49 by mgeorges          #+#    #+#             */
-/*   Updated: 2025/03/31 13:42:35 by mgeorges         ###   ########.fr       */
+/*   Updated: 2025/04/01 07:40:43 by mgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3D.h"
 
-int	close_window_texture(t_data *data)
+int	close_window_texture(t_data *data, char *line, char *path)
 {
 	int	i;
-
+	
 	if (data->map)
 	{
 		i = 0;
@@ -33,13 +33,15 @@ int	close_window_texture(t_data *data)
 		free(data->mlx);
 		data->mlx = NULL;
 	}
+	free(path);
+	free(line);
 	free(data);
 	printf("\nJeu quitté avec succès !\n");
 	exit(EXIT_FAILURE);
 	return (0);
 }
 
-int	load_texture(t_data *game, t_image *texture, const char *file_path)
+int	load_texture(t_data *game, t_image *texture, const char *file_path, char *line, char *path)
 {
 	texture->img = mlx_xpm_file_to_image(game->mlx, (char *)file_path,
 			&texture->width, &texture->height);
@@ -48,7 +50,7 @@ int	load_texture(t_data *game, t_image *texture, const char *file_path)
 		printf("\033[31mError: Could not load texture: '%s'\033[0m\n",
 			file_path);
 		free_textures(game);
-		close_window_texture(game);
+		close_window_texture(game, line, path);
 		return (1);
 	}
 	texture->addr = mlx_get_data_addr(texture->img, &texture->bpp,
@@ -71,7 +73,7 @@ int	load_texture_by_id(t_data *game, char *line, t_image *texture)
 		free(path);
 		return (0);
 	}
-	if (!load_texture(game, texture, path))
+	if (!load_texture(game, texture, path, line, path))
 	{
 		free(path);
 		return (0);
