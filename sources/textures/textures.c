@@ -6,7 +6,7 @@
 /*   By: mgeorges <mgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 13:37:49 by mgeorges          #+#    #+#             */
-/*   Updated: 2025/04/02 11:22:55 by mgeorges         ###   ########.fr       */
+/*   Updated: 2025/04/02 15:09:44 by mgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	close_window_texture(t_data *data, char *line, char *path)
 	}
 	if (data->mlx)
 	{
-		mlx_destroy_display(data->mlx);
+		//mlx_destroy_display(data->mlx);
 		free(data->mlx);
 		data->mlx = NULL;
 	}
