@@ -6,7 +6,7 @@
 /*   By: mgeorges <mgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 08:17:26 by mgeorges          #+#    #+#             */
-/*   Updated: 2025/04/02 07:46:20 by mgeorges         ###   ########.fr       */
+/*   Updated: 2025/04/02 09:02:41 by mgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,8 +128,6 @@ typedef struct s_flood
 
 // map
 char			**read_map_file(char *filename);
-
-int				test(char **map, int *textures);
 
 // Raycasting
 void			raycasting(t_data *game);
