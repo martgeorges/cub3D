@@ -6,7 +6,7 @@
 /*   By: mgeorges <mgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 08:17:26 by mgeorges          #+#    #+#             */
-/*   Updated: 2025/04/02 09:02:41 by mgeorges         ###   ########.fr       */
+/*   Updated: 2025/04/02 11:23:45 by mgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@
 # define FOV 1.0471975512
 
 // Controls
-# define ROT_SPEED 0.02
+# define ROT_SPEED 0.0125
 # define MOVE_SPEED 0.02
 # define LEFT 0
 # define RIGHT 1
@@ -43,7 +43,7 @@
 # define MAX_LINES 1000
 # define MAX_COLS 1000
 
-# define SCREEN_WIDTH 800
+# define SCREEN_WIDTH 900
 # define SCREEN_HEIGHT 600
 
 typedef struct s_player
@@ -119,12 +119,12 @@ typedef struct s_texture_info
 	int			wall_height;
 }				t_texture_info;
 
-typedef struct s_flood
+/*typedef struct s_flood
 {
 	char		**visited;
 	int			height;
 	int			width;
-}				t_flood;
+}				t_flood;*/
 
 // map
 char			**read_map_file(char *filename);
@@ -166,6 +166,8 @@ int				load_textures_from_map(t_data *game, const char *map_file);
 int				parse_map_file(t_data *game, const char *map_file);
 int				close_window_texture(t_data *data, char *line, char *path);
 void			condition(char **map, int *textures, int *colors, t_data *game);
+int				validate_textures_and_colors(char **map, int *textures,
+					int *colors);
 
 // error management
 int				is_cub_file(const char *filename);
