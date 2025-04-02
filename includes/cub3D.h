@@ -6,7 +6,7 @@
 /*   By: mgeorges <mgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 08:17:26 by mgeorges          #+#    #+#             */
-/*   Updated: 2025/04/01 13:48:02 by mgeorges         ###   ########.fr       */
+/*   Updated: 2025/04/02 07:46:20 by mgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,8 +129,7 @@ typedef struct s_flood
 // map
 char			**read_map_file(char *filename);
 
-
-int	test(char **map, int *textures);
+int				test(char **map, int *textures);
 
 // Raycasting
 void			raycasting(t_data *game);
@@ -167,7 +166,8 @@ int				load_texture(t_data *game, t_image *texture,
 int				load_texture_by_id(t_data *game, char *line, t_image *texture);
 int				load_textures_from_map(t_data *game, const char *map_file);
 int				parse_map_file(t_data *game, const char *map_file);
-int	close_window_texture(t_data *data, char *line, char *path);
+int				close_window_texture(t_data *data, char *line, char *path);
+void			condition(char **map, int *textures, int *colors, t_data *game);
 
 // error management
 int				is_cub_file(const char *filename);
@@ -182,7 +182,6 @@ int				is_map_line(char *line);
 void			check_textures_and_colors(char **map, t_data *game);
 void			print_info(int has_map, char **map, t_data *game);
 int				is_map_closed(t_data *game);
-
 
 // memory management
 void			free_textures(t_data *game);
