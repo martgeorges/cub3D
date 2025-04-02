@@ -6,7 +6,7 @@
 /*   By: mgeorges <mgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 15:55:03 by mgeorges          #+#    #+#             */
-/*   Updated: 2025/04/02 11:21:11 by mgeorges         ###   ########.fr       */
+/*   Updated: 2025/04/02 12:55:26 by mgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,9 +83,7 @@ int	validate_textures_and_colors(char **map, int *textures, int *colors)
 				return (-1);
 		}
 		else if (is_map_line(map[i]))
-		{
 			break ;
-		}
 		i++;
 	}
 	return (0);
@@ -128,9 +126,9 @@ void	check_textures_and_colors(char **map, t_data *game)
 		exit(EXIT_FAILURE);
 	}
 	*flag = 1;
-}*/
+}
 
-/*void	validate_textures_and_colors(char **map, int *textures, int *colors)
+void	validate_textures_and_colors(char **map, int *textures, int *colors)
 {
 	int	i;
 

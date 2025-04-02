@@ -6,7 +6,7 @@
 /*   By: mgeorges <mgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 09:30:15 by mgeorges          #+#    #+#             */
-/*   Updated: 2025/04/02 10:36:54 by mgeorges         ###   ########.fr       */
+/*   Updated: 2025/04/02 11:53:54 by mgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,7 +111,7 @@ int	main(int ac, char **av)
 		free_textures(game);
 		close_window_texture(game, path, line);
 	}*/
-	printf("Game starting...\n\n");
+	printf("\033[1;34m[Game starting]\033[0m\n\n");
 	printf("░█▀▀░█░█░█▀▄░▀▀█░█▀▄░░\n");
 	printf("░█░░░█░█░█▀▄░░▀▄░█░█░░\n");
 	printf("░▀▀▀░▀▀▀░▀▀░░▀▀░░▀▀░░░\n");
