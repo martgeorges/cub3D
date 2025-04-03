@@ -6,7 +6,7 @@
 /*   By: mgeorges <mgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 10:43:42 by mgeorges          #+#    #+#             */
-/*   Updated: 2025/04/01 08:15:31 by mgeorges         ###   ########.fr       */
+/*   Updated: 2025/04/03 15:36:15 by mgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,16 @@ int	parse_color(char *line, t_data *game)
 	return (color);
 }
 
+void	parse_map_info(t_data *game, char *line)
+{
+	while (*line == ' ')
+		line++;
+	if (*line == 'F')
+		game->floor_color = parse_color(line + 1, game);
+	else if (*line == 'C')
+		game->ceiling_color = parse_color(line + 1, game);
+}
+
 /*int	parse_color(char *line, t_data *game)
 {
 	int		r;
@@ -105,12 +115,3 @@ int	parse_color(char *line, t_data *game)
 	color = (r << 16) | (g << 8) | b;
 	return (color);
 }*/
-void	parse_map_info(t_data *game, char *line)
-{
-	while (*line == ' ')
-		line++;
-	if (*line == 'F')
-		game->floor_color = parse_color(line + 1, game);
-	else if (*line == 'C')
-		game->ceiling_color = parse_color(line + 1, game);
-}
