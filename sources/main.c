@@ -6,7 +6,7 @@
 /*   By: mgeorges <mgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 09:30:15 by mgeorges          #+#    #+#             */
-/*   Updated: 2025/04/02 14:57:32 by mgeorges         ###   ########.fr       */
+/*   Updated: 2025/04/03 10:53:30 by mgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,12 @@ int	main(int ac, char **av)
 			x++;
 		}
 		y++;
+	}
+	if (!check_map_end(game->map))
+	{
+    	free_map(game->map);
+    	free(game);
+    	return (1);
 	}
 	if (!is_map_closed(game))
 	{
