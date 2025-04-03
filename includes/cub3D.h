@@ -6,7 +6,7 @@
 /*   By: mgeorges <mgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 08:17:26 by mgeorges          #+#    #+#             */
-/*   Updated: 2025/04/03 15:30:45 by mgeorges         ###   ########.fr       */
+/*   Updated: 2025/04/03 15:55:28 by mgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@
 # define FOV 1.0471975512
 
 // Controls
-# define ROT_SPEED 0.0125
+# define ROT_SPEED 0.02
 # define MOVE_SPEED 0.02
 # define LEFT 0
 # define RIGHT 1
@@ -43,8 +43,8 @@
 # define MAX_LINES 1000
 # define MAX_COLS 1000
 
-# define SCREEN_WIDTH 900
-# define SCREEN_HEIGHT 600
+# define SCREEN_WIDTH 1000
+# define SCREEN_HEIGHT 700
 
 typedef struct s_player
 {
@@ -119,16 +119,16 @@ typedef struct s_texture_info
 	int			wall_height;
 }				t_texture_info;
 
-/*typedef struct s_flood
+typedef struct s_flood
 {
 	char		**visited;
-	int			height;
-	int			width;
-}				t_flood;*/
+	char		**map;
+	int			char_error;
+	int			rows;
+}				t_flood;
 
-int				check_map_end(char **map);
 // map
-char			**read_map_file(char *filename);
+void			read_map_file(char *filename, t_data *game);
 
 // Raycasting
 void			raycasting(t_data *game);
@@ -161,14 +161,12 @@ int				key_press(int keycode, t_data *game);
 void			parse_map_info(t_data *game, char *line);
 char			*get_next_line(int fd);
 int				load_texture(t_data *game, t_image *texture,
-					const char *file_path, char *path, char *line);
+					char *line, char *path);
 int				load_texture_by_id(t_data *game, char *line, t_image *texture);
 int				load_textures_from_map(t_data *game, const char *map_file);
 int				parse_map_file(t_data *game, const char *map_file);
 int				close_window_texture(t_data *data, char *line, char *path);
 void			condition(char **map, int *textures, int *colors, t_data *game);
-int				validate_textures_and_colors(char **map, int *textures,
-					int *colors);
 
 // error management
 int				is_cub_file(const char *filename);
@@ -193,6 +191,15 @@ int				close_window(t_data *data);
 void			print_map(char **map);
 void			free_map(char **map);
 
+// utils floodfill
+void			init_visited(int height, int width, t_flood *f);
+void			free_visited(t_flood *f);
+
+// utils
+void			init_tab(int tab[], int size);
+int				is_texture_line(char *line);
+int				is_empty_line(char *line);
+
 // libft
 void			*ft_memmove(void *dest, const void *src, size_t n);
 void			*ft_memcpy(void *dest, void const *src, size_t n);
@@ -203,6 +210,6 @@ int				ft_atoi(const char *str);
 char			**ft_split(char const *s, char c);
 char			*ft_substr(char const *s, unsigned int start, size_t len);
 char			*ft_strtrim(const char *s, const char *set);
-char			*ft_strchr(char const *str, int c);
+int				ft_isspace(int c);
 
 #endif

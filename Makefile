@@ -6,7 +6,7 @@
 #    By: mgeorges <mgeorges@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/13 08:15:39 by mgeorges          #+#    #+#              #
-#    Updated: 2025/04/03 12:11:32 by mgeorges         ###   ########.fr        #
+#    Updated: 2025/04/03 15:56:20 by mgeorges         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ OBJ_DIR		=	./objs
 ERROR_SRCS	=	sources/error/error.c sources/error/error2.c
 
 LIBFT_SRCS	=	sources/libft/ft_split.c sources/libft/get_next_line.c sources/libft/libft.c \
-			sources/libft/libft2.c sources/libft/utils2.c
+			sources/libft/libft2.c sources/libft/utils2.c sources/libft/ft_isspace.c
 
 MAP_SRCS	=	sources/map_files/map_errors.c sources/map_files/map_errors_2.c \
 			sources/map_files/map_errors_3.c sources/map_files/map_render.c \
@@ -38,6 +38,7 @@ KEYBOARD_SRCS = sources/keyboard/keyboard_macos.c
 
 SRCS	=	sources/main.c \
 		sources/utils.c \
+		sources/utils2.c \
 		sources/memory_management.c \
 		$(ERROR_SRCS) $(LIBFT_SRCS) $(MAP_SRCS) $(RAYCAST_SRCS) $(TEXTURES_SRCS) $(KEYBOARD_SRCS)
 		

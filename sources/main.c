@@ -6,7 +6,7 @@
 /*   By: mgeorges <mgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 09:30:15 by mgeorges          #+#    #+#             */
-/*   Updated: 2025/04/03 14:51:13 by mgeorges         ###   ########.fr       */
+/*   Updated: 2025/04/03 15:58:41 by mgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ int	main(int ac, char **av)
 	t_data	*game;
 	int		y;
 	int		x;
+	int		error_map;
 
 	check_error(ac, av);
 	game = malloc(sizeof(t_data));
@@ -39,14 +40,8 @@ int	main(int ac, char **av)
 		return (1);
 	}
 	init_game(game);
-	game->map = read_map_file(av[1]);
+	read_map_file(av[1], game);
 	display_messages(game->map, game);
-	if (!check_map_end(game->map))
-	{
-    	free_map(game->map);
-    	free(game);
-    	return (1);
-	}
 	check_textures_and_colors(game->map, game);
 	game->map_height = 0;
 	game->map_width = 0;
@@ -87,15 +82,17 @@ int	main(int ac, char **av)
 		}
 		y++;
 	}
-	/*if (!check_map_end(game->map))
-	{
-    	free_map(game->map);
-    	free(game);
-    	return (1);
-	}*/
-	if (!is_map_closed(game))
+	error_map = is_map_closed(game);
+	if (error_map == 0)
 	{
 		printf("\033[31mError: Map is not closed.\033[0m\n");
+		free_map(game->map);
+		free(game);
+		return (1);
+	}
+	else if (error_map == -1)
+	{
+		printf("\033[31mError: Invalid caracter in the map.\033[0m\n");
 		free_map(game->map);
 		free(game);
 		return (1);
@@ -123,7 +120,7 @@ int	main(int ac, char **av)
 		free_textures(game);
 		close_window_texture(game, path, line);
 	}*/
-	printf("\033[1;34m[Game starting]\033[0m\n\n");
+	printf("Game starting...\n\n");
 	printf("░█▀▀░█░█░█▀▄░▀▀█░█▀▄░░\n");
 	printf("░█░░░█░█░█▀▄░░▀▄░█░█░░\n");
 	printf("░▀▀▀░▀▀▀░▀▀░░▀▀░░▀▀░░░\n");

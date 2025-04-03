@@ -6,7 +6,7 @@
 /*   By: mgeorges <mgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 19:25:20 by ncollign          #+#    #+#             */
-/*   Updated: 2025/04/03 15:30:31 by mgeorges         ###   ########.fr       */
+/*   Updated: 2025/04/01 07:14:36 by mgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,18 +46,4 @@ char	*ft_strtrim(const char *s, const char *set)
 		trimmed[i++] = s[start++];
 	trimmed[i] = '\0';
 	return (trimmed);
-}
-
-char	*ft_strchr(char const *str, int c)
-{
-	while (*str)
-	{
-		if (*str == (char)c)
-			return ((char *)str);
-		str++;
-	}
-	if (*str == (char)c)
-		return ((char *)str);
-	else
-		return (NULL);
 }
