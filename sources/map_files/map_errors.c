@@ -6,7 +6,7 @@
 /*   By: mgeorges <mgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 09:53:09 by mgeorges          #+#    #+#             */
-/*   Updated: 2025/03/31 13:13:02 by mgeorges         ###   ########.fr       */
+/*   Updated: 2025/04/03 15:21:12 by mgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ static int	analyze_line(char *line)
 			if (line[j] == 'N' || line[j] == 'S' || line[j] == 'E'
 				|| line[j] == 'W')
 			{
+				//printf("Caractère détecté comme joueur : [%c] à l'index [%d]\n",
+					//line[j], j);
 				player_count++;
 			}
 			j++;
