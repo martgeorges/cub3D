@@ -6,7 +6,7 @@
 /*   By: mgeorges <mgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 10:43:42 by mgeorges          #+#    #+#             */
-/*   Updated: 2025/04/01 08:15:31 by mgeorges         ###   ########.fr       */
+/*   Updated: 2025/04/07 07:55:06 by mgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,43 +68,6 @@ int	parse_color(char *line, t_data *game)
 	return (color);
 }
 
-/*int	parse_color(char *line, t_data *game)
-{
-	int		r;
-	int		g;
-	int		b;
-	char	**rgb;
-	int		color;
-	int		i;
-
-	while (*line == ' ')
-		line++;
-	rgb = ft_split(line, ',');
-	if (!rgb || !rgb[0] || !rgb[1] || !rgb[2] || rgb[3])
-	{
-		free_map(game->map);
-		if (rgb)
-		{
-			i = 0;
-			while (rgb[i])
-			{
-				free(rgb[i]);
-				i++;
-			}
-			free(rgb);
-		}
-		handle_color_error("Invalid format must be 'R, G, B' with 3 values.");
-		return (-1);
-	}
-	r = ft_atoi(rgb[0]);
-	g = ft_atoi(rgb[1]);
-	b = ft_atoi(rgb[2]);
-	free_map(rgb);
-	if (r < 0 || r > 255 || g < 0 || g > 255 || b < 0 || b > 255)
-		return (-1);
-	color = (r << 16) | (g << 8) | b;
-	return (color);
-}*/
 void	parse_map_info(t_data *game, char *line)
 {
 	while (*line == ' ')

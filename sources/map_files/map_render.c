@@ -3,20 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   map_render.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mgeorges <mgeorges@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ncollign <ncollign@student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 08:38:00 by mgeorges          #+#    #+#             */
-/*   Updated: 2025/04/02 09:25:33 by mgeorges         ###   ########.fr       */
+/*   Updated: 2025/04/03 14:21:08 by ncollign         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3D.h"
 
-static void	handle_open_error(int fd)
+static void	handle_open_error(int fd, t_data *game)
 {
 	if (fd == -1)
 	{
 		printf("\033[31mError : cant open the file\033[0m\n");
+		free(game);
 		exit(EXIT_FAILURE);
 	}
 }
@@ -53,7 +54,7 @@ static void	process_buffer(char **map, char *buffer, ssize_t *bytes_read,
 	}
 }
 
-char	**read_map_file(char *filename)
+void	read_map_file(char *filename, t_data *game)
 {
 	int		fd;
 	char	**map;
@@ -62,10 +63,14 @@ char	**read_map_file(char *filename)
 	int		i;
 
 	fd = open(filename, O_RDONLY);
-	handle_open_error(fd);
+	handle_open_error(fd, game);
 	map = malloc(sizeof(char *) * MAX_LINES);
 	if (!map)
+	{
+		printf("\033[31mError: malloc failed for map\033[0m\n");
+		free(game);
 		exit(EXIT_FAILURE);
+	}
 	i = 0;
 	bytes_read = read(fd, buffer, BUFFER_SIZE);
 	while (bytes_read > 0)
@@ -75,5 +80,5 @@ char	**read_map_file(char *filename)
 	}
 	map[i] = NULL;
 	close(fd);
-	return (map);
+	game->map = map;
 }

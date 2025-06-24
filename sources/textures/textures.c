@@ -6,7 +6,7 @@
 /*   By: mgeorges <mgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 13:37:49 by mgeorges          #+#    #+#             */
-/*   Updated: 2025/04/02 11:22:55 by mgeorges         ###   ########.fr       */
+/*   Updated: 2025/04/04 07:57:13 by mgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,20 +36,19 @@ int	close_window_texture(t_data *data, char *line, char *path)
 	free(path);
 	free(line);
 	free(data);
-	//printf("\nJeu quitté avec succès !\n");
 	exit(0);
 	return (0);
 }
 
-int	load_texture(t_data *game, t_image *texture, const char *file_path,
+int	load_texture(t_data *game, t_image *texture,
 		char *line, char *path)
 {
-	texture->img = mlx_xpm_file_to_image(game->mlx, (char *)file_path,
+	texture->img = mlx_xpm_file_to_image(game->mlx, (char *)path,
 			&texture->width, &texture->height);
 	if (!texture->img)
 	{
 		printf("\033[31mError: Could not load texture: '%s'\033[0m\n",
-			file_path);
+			path);
 		free_textures(game);
 		close_window_texture(game, line, path);
 		free_map(game->map);
@@ -75,7 +74,7 @@ int	load_texture_by_id(t_data *game, char *line, t_image *texture)
 		free(path);
 		return (0);
 	}
-	if (!load_texture(game, texture, path, line, path))
+	if (!load_texture(game, texture, line, path))
 	{
 		free(path);
 		return (0);

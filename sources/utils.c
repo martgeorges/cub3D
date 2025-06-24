@@ -6,7 +6,7 @@
 /*   By: mgeorges <mgeorges@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 21:23:07 by ncollign          #+#    #+#             */
-/*   Updated: 2025/04/02 11:52:54 by mgeorges         ###   ########.fr       */
+/*   Updated: 2025/04/04 07:02:03 by mgeorges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,4 +66,31 @@ void	free_map(char **map)
 		i++;
 	}
 	free(map);
+}
+
+void	free_visited(t_flood *f)
+{
+	int	y;
+
+	y = 0;
+	while (y < f->rows)
+		free(f->visited[y++]);
+	free(f->visited);
+}
+
+void	init_visited(int height, int width, t_flood *f)
+{
+	int		y;
+
+	f->visited = (char **)malloc(sizeof(char *) * height);
+	if (!f->visited)
+		exit(EXIT_FAILURE);
+	y = 0;
+	while (y < height)
+	{
+		f->visited[y] = (char *)malloc(sizeof(char) * (width + 1));
+		ft_memset(f->visited[y], '0', width);
+		f->visited[y][width] = '\0';
+		y++;
+	}
 }
