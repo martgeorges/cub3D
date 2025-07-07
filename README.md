@@ -1,6 +1,6 @@
 <h1>CUB3D - 42 Luxembourg 3D game in C (Wolfenstein inspired)</h1>
 
-KEYBOARD GUIDE :
+KEYBOARD GUIDE :<br>
 -[Q] to go left.<br>
 -[D] to go right.<br>
 -[Z] to go forward.<br>
