@@ -1,4 +1,4 @@
-CUB3D - 42 Luxembourg 3D game in C (Wolfenstein inspired)
+<h1>CUB3D - 42 Luxembourg 3D game in C (Wolfenstein inspired)</h1>
 
 KEYBOARD GUIDE :
 -[Q] to go left.
