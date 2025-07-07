@@ -1,13 +1,13 @@
 <h1>CUB3D - 42 Luxembourg 3D game in C (Wolfenstein inspired)</h1>
 
 KEYBOARD GUIDE :
--[Q] to go left.
--[D] to go right.
--[Z] to go forward.
--[S] to go backward.
+-[Q] to go left.<br>
+-[D] to go right.<br>
+-[Z] to go forward.<br>
+-[S] to go backward.<br>
 
--left arrow -> turns the camera to the left.
--right arrow -> turns the camera to the right.
+-left arrow -> turns the camera to the left.<br>
+-right arrow -> turns the camera to the right.<br>
 
 in the file you first have to download the minilibx (macos/linux) version depending on what you're on.
 
